@@ -73,7 +73,7 @@ public class ListActivity extends Activity{
             ViewHolder holder = null;
             if (convertView == null) {
                 holder = new ViewHolder();
-                convertView = mInflater.inflate(R.layout.sample_item_view, null);
+                convertView = mInflater.inflate(R.layout.view_custom_item, null);
                 holder.img = (ImageView) convertView.findViewById(R.id.imageView);
                 holder.title = (TextView) convertView.findViewById(R.id.title);
                 holder.info = (TextView) convertView.findViewById(R.id.info);

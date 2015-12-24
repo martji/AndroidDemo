@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">AndroidDemo</string>
 
+    <!-- Menu -->
     <string name="action_fastscroll">Fast scroll</string>
     <string name="action_addpadding">Add padding</string>
     <string name="action_showShadow">Show shadow</string>
     <string name="action_showHeaderAndFooter">Show Header &amp; Footer</string>
     <string name="action_updateDataset">Update dataset</string>
+
+    <!-- Button -->
+    <string name="start_list_activity">ListActivity</string>
+    <string name="start_pinned_activity">PinnedActivity</string>
+    <string name="start_sticky_activity">StickyActivity</string>
+
 </resources>

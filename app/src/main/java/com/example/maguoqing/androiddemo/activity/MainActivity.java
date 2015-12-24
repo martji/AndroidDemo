@@ -1,30 +1,53 @@
 package com.example.maguoqing.androiddemo.activity;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.maguoqing.androiddemo.R;
+import com.example.maguoqing.androiddemo.control.IntentManager;
 
-public class MainActivity extends Activity{
 
-    private Button mButton;
+public class MainActivity extends BaseActivity{
+
+    @ViewId(R.id.btn_list_activity)
+    private Button mButtonListActivity;
+
+    @ViewId(R.id.btn_pinned_activity)
+    private Button mButtonSpinnedActivity;
+
+    @ViewId(R.id.btn_sticky_activity)
+    private Button mButtonStickyActivity;
+
+    private Context mContext;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getActivityLayout() { return R.layout.activity_main; }
 
-        mButton = (Button) findViewById(R.id.button);
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, PinnedSectionListActivity.class);
-                startActivity(intent);
-            }
-        });
+    @Override
+    protected void initControls() {
+        mContext = this;
+        setListener();
+    }
+
+    private void setListener() {
+        mButtonListActivity.setOnClickListener(this);
+        mButtonSpinnedActivity.setOnClickListener(this);
+        mButtonStickyActivity.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_list_activity:
+                IntentManager.startListActivity(mContext);
+                break;
+            case R.id.btn_pinned_activity:
+                IntentManager.startPinnedActivity(mContext);
+                break;
+            case R.id.btn_sticky_activity:
+                IntentManager.startStickyActivity(mContext);
+                break;
+        }
     }
 }
