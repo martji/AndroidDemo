@@ -15,6 +15,15 @@
         android:dividerHeight="1dp"
         android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
+
+    <ExpandableListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/id_listview"
+        android:layout_gravity="right"
+        android:groupIndicator="@null"
+        android:indicatorRight="0px"
+        android:id="@+id/expand_list" />
 
 </RelativeLayout>
