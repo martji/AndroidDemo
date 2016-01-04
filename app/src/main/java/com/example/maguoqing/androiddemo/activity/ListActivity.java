@@ -1,11 +1,5 @@
 package com.example.maguoqing.androiddemo.activity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,21 +12,44 @@ import android.widget.TextView;
 
 import com.example.maguoqing.androiddemo.R;
 
-public class ListActivity extends Activity{
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+public class ListActivity extends BaseActivity{
+
+    @ViewId(R.id.id_listview)
     private ListView mRecyclerView;
+
     private List<Map<String, Object>> mDatas = new ArrayList<>();
     private Myadapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+    }
 
+    @Override
+    protected void setListeners() {
+
+    }
+
+    @Override
+    protected void readIntent() {
+
+    }
+
+    @Override
+    protected void initControls() {
         initData();
-        mRecyclerView = (ListView) findViewById(R.id.id_listview);
         mAdapter = new Myadapter(this);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    protected int getActivityLayout() {
+        return R.layout.activity_list;
     }
 
     protected void initData() {

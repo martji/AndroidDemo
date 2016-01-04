@@ -25,15 +25,20 @@ public class MainActivity extends BaseActivity{
     protected int getActivityLayout() { return R.layout.activity_main; }
 
     @Override
-    protected void initControls() {
-        mContext = this;
-        setListener();
-    }
-
-    private void setListener() {
+    protected void setListeners() {
         mButtonListActivity.setOnClickListener(this);
         mButtonSpinnedActivity.setOnClickListener(this);
         mButtonStickyActivity.setOnClickListener(this);
+    }
+
+    @Override
+    protected void readIntent() {
+
+    }
+
+    @Override
+    protected void initControls() {
+        mContext = this;
     }
 
     @Override

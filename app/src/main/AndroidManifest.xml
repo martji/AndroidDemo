@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme.NoActionBar" >
         <activity android:name=".activity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,7 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ListActivity" ></activity>
+        <activity
+            android:name=".activity.ListActivity"
+            android:label="@string/start_list_activity">
+        </activity>
         <activity android:name=".activity.StickyActivity" ></activity>
         <activity android:name=".activity.PinnedSectionListActivity" ></activity>
     </application>
