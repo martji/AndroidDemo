@@ -6,11 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.maguoqing.androiddemo.R;
+import com.example.maguoqing.androiddemo.adapter.MExpandAdapter;
+import com.example.maguoqing.androiddemo.model.CourseItem;
+import com.example.maguoqing.androiddemo.model.Lesson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,11 +22,17 @@ import java.util.Map;
 
 public class ListActivity extends BaseActivity{
 
-    @ViewId(R.id.id_listview)
-    private ListView mRecyclerView;
+//    @ViewId(R.id.id_listview)
+//    private ListView mRecyclerView;
+
+    @ViewId(R.id.expand_list)
+    private ExpandableListView expandableListView;
 
     private List<Map<String, Object>> mDatas = new ArrayList<>();
+    private ArrayList<CourseItem> mCourses = new ArrayList<>();
+
     private Myadapter mAdapter;
+    private MExpandAdapter mExpandAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +52,12 @@ public class ListActivity extends BaseActivity{
     @Override
     protected void initControls() {
         initData();
-        mAdapter = new Myadapter(this);
-        mRecyclerView.setAdapter(mAdapter);
+//        mAdapter = new Myadapter(this);
+//        mRecyclerView.setAdapter(mAdapter);
+
+        mExpandAdapter = new MExpandAdapter(this);
+        mExpandAdapter.setData(mCourses);
+        expandableListView.setAdapter(mExpandAdapter);
     }
 
     @Override
@@ -60,6 +73,17 @@ public class ListActivity extends BaseActivity{
         mDatas.add(map);
         mDatas.add(map);
         mDatas.add(map);
+
+        CourseItem courseItem = new CourseItem();
+        courseItem.setCourseName("Test");
+        ArrayList<Lesson> lessons = new ArrayList<>();
+        lessons.add(new Lesson("lesson1", "Marry"));
+        lessons.add(new Lesson("lesson2", "Marry"));
+        lessons.add(new Lesson("lesson2", "Marry"));
+        lessons.add(new Lesson("lesson2", "Marry"));
+        courseItem.setLessons(lessons);
+        mCourses.add(courseItem);
+        mCourses.add(courseItem);
     }
 
     class Myadapter extends BaseAdapter {
