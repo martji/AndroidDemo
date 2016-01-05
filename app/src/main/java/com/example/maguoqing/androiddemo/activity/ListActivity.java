@@ -2,6 +2,8 @@ package com.example.maguoqing.androiddemo.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import me.drakeet.materialdialog.MaterialDialog;
+
 public class ListActivity extends BaseActivity{
 
 //    @ViewId(R.id.id_listview)
@@ -33,6 +37,48 @@ public class ListActivity extends BaseActivity{
 
     private Myadapter mAdapter;
     private MExpandAdapter mExpandAdapter;
+
+    private Context mContext;
+    final public static int  SIGN_UP = 1;
+
+    private Handler mUIhandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            int what = msg.what;
+            switch (what) {
+                case SIGN_UP:
+//                    ConfirmDialog confirmDialog = new ConfirmDialog(ListActivity.this, R.style.MyDialog);
+//                    confirmDialog.setMsg(getString(R.string.start_list_activity));
+//                    confirmDialog.setPositiveButton(mContext.getResources().getString(R.string.confirm), new ConfirmDialog.CustomOnClick() {
+//                        @Override
+//                        public void onClick() {
+//                        }
+//                    });
+//                    confirmDialog.setNegativeButton(mContext.getResources().getString(R.string.cancel), null);
+//                    confirmDialog.show();
+
+                    final MaterialDialog mMaterialDialog = new MaterialDialog(mContext);
+                    mMaterialDialog.setTitle("MaterialDialog");
+                    mMaterialDialog.setMessage("Hello world!");
+                    mMaterialDialog.setPositiveButton("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mMaterialDialog.dismiss();
+                        }
+                    });
+                    mMaterialDialog.setNegativeButton("CANCEL", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mMaterialDialog.dismiss();
+                        }
+                    });
+
+                    mMaterialDialog.show();
+
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +97,7 @@ public class ListActivity extends BaseActivity{
 
     @Override
     protected void initControls() {
+        mContext = this;
         initData();
 //        mAdapter = new Myadapter(this);
 //        mRecyclerView.setAdapter(mAdapter);
@@ -58,6 +105,13 @@ public class ListActivity extends BaseActivity{
         mExpandAdapter = new MExpandAdapter(this);
         mExpandAdapter.setData(mCourses);
         expandableListView.setAdapter(mExpandAdapter);
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                mUIhandler.sendEmptyMessage(ListActivity.SIGN_UP);
+                return false;
+            }
+        });
     }
 
     @Override
@@ -77,10 +131,10 @@ public class ListActivity extends BaseActivity{
         CourseItem courseItem = new CourseItem();
         courseItem.setCourseName("Test");
         ArrayList<Lesson> lessons = new ArrayList<>();
-        lessons.add(new Lesson("lesson1", "Marry"));
-        lessons.add(new Lesson("lesson2", "Marry"));
-        lessons.add(new Lesson("lesson2", "Marry"));
-        lessons.add(new Lesson("lesson2", "Marry"));
+        lessons.add(new Lesson("lesson1", "Mary"));
+        lessons.add(new Lesson("lesson2", "Jack"));
+        lessons.add(new Lesson("lesson3", "Tom"));
+        lessons.add(new Lesson("lesson4", "Jack"));
         courseItem.setLessons(lessons);
         mCourses.add(courseItem);
         mCourses.add(courseItem);

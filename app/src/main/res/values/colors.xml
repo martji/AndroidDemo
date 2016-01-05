@@ -8,6 +8,19 @@
     <color name="green_light">#ff99cc00</color>
     <color name="orange_light">#ffffbb33</color>
     <color name="blue_light">#ff33b5e5</color>
+    <color name="bg_green">#0abc63</color>
+
+    <color name="answer_gray">#F7F7F7</color>
+    <color name="answer_text_gray">#D8D8D8</color>
+    <color name="answer_green">#0ABC63</color>
+    <color name="answer_black">#222222</color>
+    <color name="answer_gray_dark">#E9E9E9</color>
+    <color name="answer_red">#FF654C</color>
+    <color name="answer_blue">#37A7FF</color>
 
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="apart_gray">#cccccc</color>
+
+    <color name="transparent">#00000000</color>
 </resources>
