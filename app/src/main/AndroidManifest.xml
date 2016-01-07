@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".activity.StickyActivity" ></activity>
         <activity android:name=".activity.PinnedSectionListActivity" ></activity>
+        <activity android:name=".activity.AppBarDetailActivity" ></activity>
+        <activity android:name=".activity.BottomTabActivity" ></activity>
     </application>
 
 </manifest>

@@ -23,4 +23,7 @@
     <color name="apart_gray">#cccccc</color>
 
     <color name="transparent">#00000000</color>
+
+    <color name="primary_text">#212121</color>
+    <color name="tab_bgcolor">#eeeeee</color>
 </resources>

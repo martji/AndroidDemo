@@ -21,4 +21,13 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">?attr/colorAccent</item>
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">@color/tab_bgcolor</item>
+        <item name="tabSelectedTextColor">@color/colorPrimary</item>
+    </style>
+
 </resources>

@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity{
     private Context mContext;
 
     @Override
-    protected int getActivityLayout() { return R.layout.activity_main; }
+    protected int getActivityLayout() { return R.layout.activity_btn; }
 
     @Override
     protected void setListeners() {
@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity{
                 IntentManager.startPinnedActivity(mContext);
                 break;
             case R.id.btn_sticky_activity:
-                IntentManager.startStickyActivity(mContext);
+                IntentManager.startBottomTabActivity(mContext);
                 break;
         }
     }

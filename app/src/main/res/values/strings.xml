@@ -16,4 +16,9 @@
     <string name="cancel">取消</string>
     <string name="confirm">确定</string>
 
+    <string name="transition_book_img">transition_book_img</string>
+
+    <string name="index">首页</string>
+    <string name="account">账户</string>
+
 </resources>
