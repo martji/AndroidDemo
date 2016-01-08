@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -15,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.maguoqing.androiddemo.R;
+import com.example.maguoqing.androiddemo.view.CustomViewPager;
 import com.example.maguoqing.androiddemo.view.TabItemView;
 
 
@@ -23,7 +23,7 @@ import com.example.maguoqing.androiddemo.view.TabItemView;
  */
 public class BottomTabActivity extends AppCompatActivity {
 
-    private ViewPager viewPager;
+    private CustomViewPager viewPager;
     private TabLayout tabLayout;
 
     private int imageResId[] = new int[]{R.drawable.home_white, R.drawable.explore_white, R.drawable.account_white};
@@ -46,7 +46,7 @@ public class BottomTabActivity extends AppCompatActivity {
 //            }
 //        });
 
-        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        viewPager = (CustomViewPager)findViewById(R.id.viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
         final SampleFragmentPagerAdapter pagerAdapter =

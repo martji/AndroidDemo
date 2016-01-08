@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#FFF"
+            android:layout_above="@+id/main_radio">
+        </FrameLayout>
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone" />
+
+        <RadioGroup
+            android:id="@+id/main_radio"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ccc"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true" >
+
+            <RadioButton
+                android:id="@+id/tab_home"
+                style="@style/main_tab_bottom"
+                android:checked="true"
+                android:drawableTop="@drawable/tab_home_selector"
+                android:text="首页" />
+
+            <RadioButton
+                android:id="@+id/tab_explore"
+                style="@style/main_tab_bottom"
+                android:checked="false"
+                android:drawableTop="@drawable/tab_explore_selector"
+                android:text="发现" />
+
+            <RadioButton
+                android:id="@+id/tab_account"
+                style="@style/main_tab_bottom"
+                android:checked="false"
+                android:drawableTop="@drawable/tab_account_selector"
+                android:text="账户" />
+
+        </RadioGroup>
+    </RelativeLayout>
+</TabHost>
