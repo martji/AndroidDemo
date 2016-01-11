@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity{
                 IntentManager.startPinnedActivity(mContext);
                 break;
             case R.id.btn_sticky_activity:
-                IntentManager.startBottomTabActivity(mContext);
+                IntentManager.startScrollviewActivity(mContext);
                 break;
         }
     }

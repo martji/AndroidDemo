@@ -7,6 +7,7 @@ import com.example.maguoqing.androiddemo.activity.AppBarDetailActivity;
 import com.example.maguoqing.androiddemo.activity.BottomTabActivity;
 import com.example.maguoqing.androiddemo.activity.ListActivity;
 import com.example.maguoqing.androiddemo.activity.PinnedSectionListActivity;
+import com.example.maguoqing.androiddemo.activity.ScrollviewActivity;
 import com.example.maguoqing.androiddemo.activity.StickyActivity;
 
 /**
@@ -41,6 +42,12 @@ public class IntentManager {
     public static void startBottomTabActivity (Context context) {
         Intent intent = new Intent();
         intent.setClass(context, BottomTabActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void startScrollviewActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, ScrollviewActivity.class);
         context.startActivity(intent);
     }
 }

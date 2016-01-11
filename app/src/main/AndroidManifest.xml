@@ -23,6 +23,7 @@
         <activity android:name=".activity.PinnedSectionListActivity" ></activity>
         <activity android:name=".activity.AppBarDetailActivity" ></activity>
         <activity android:name=".activity.BottomTabActivity" ></activity>
+        <activity android:name=".activity.ScrollviewActivity" ></activity>
     </application>
 
 </manifest>
