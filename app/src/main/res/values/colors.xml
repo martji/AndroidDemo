@@ -26,4 +26,10 @@
 
     <color name="primary_text">#212121</color>
     <color name="tab_bgcolor">#eeeeee</color>
+
+    <color name="androidColorA">#33B5E5</color>
+    <color name="androidColorB">#AA66CC</color>
+    <color name="androidColorC">#99CC00</color>
+    <color name="androidColorD">#FFBB33</color>
+    <color name="androidColorE">#FF4444</color>
 </resources>

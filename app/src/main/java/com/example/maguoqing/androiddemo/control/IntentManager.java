@@ -9,6 +9,7 @@ import com.example.maguoqing.androiddemo.activity.ListActivity;
 import com.example.maguoqing.androiddemo.activity.PinnedSectionListActivity;
 import com.example.maguoqing.androiddemo.activity.ScrollviewActivity;
 import com.example.maguoqing.androiddemo.activity.StickyActivity;
+import com.example.maguoqing.androiddemo.activity.SwipeBackDemoActivity;
 
 /**
  * Created by Guoqing on 2015/12/18.
@@ -48,6 +49,12 @@ public class IntentManager {
     public static void startScrollviewActivity(Context context) {
         Intent intent = new Intent();
         intent.setClass(context, ScrollviewActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void startSwipeBackActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, SwipeBackDemoActivity.class);
         context.startActivity(intent);
     }
 }
