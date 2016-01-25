@@ -57,4 +57,29 @@ public class IntentManager {
         intent.setClass(context, SwipeBackDemoActivity.class);
         context.startActivity(intent);
     }
+
+    public static void startActivity(int i, Context context) {
+        switch (i) {
+            case 0:
+                startListActivity(context);
+                break;
+            case 1:
+                startBottomTabActivity(context);
+                break;
+            case 2:
+                startPinnedActivity(context);
+                break;
+            case 3:
+                startScrollviewActivity(context);
+                break;
+            case 4:
+                startStickyActivity(context);
+                break;
+            case 5:
+                startSwipeBackActivity(context);
+                break;
+            default:
+                break;
+        }
+    }
 }

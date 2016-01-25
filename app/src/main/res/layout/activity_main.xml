@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,27 +10,11 @@
         android:background="?attr/colorPrimary"
         android:theme="?attr/actionBarTheme" />
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <ListView
+        android:id="@+id/id_listview"
+        android:divider="?attr/colorPrimary"
+        android:dividerHeight="1dp"
         android:layout_below="@+id/toolbar"
-        android:orientation="vertical">
-
-
-        <com.example.maguoqing.androiddemo.view.CustomViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.0"
-            android:scrollbars="none" />
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabLayout"
-            style="@style/MyCustomTabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>
