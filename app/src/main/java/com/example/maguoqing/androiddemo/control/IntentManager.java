@@ -78,6 +78,9 @@ public class IntentManager {
             case 5:
                 startSwipeBackActivity(context);
                 break;
+            case 6:
+                startAppBarActivity(context);
+                break;
             default:
                 break;
         }

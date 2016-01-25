@@ -1,6 +1,7 @@
 package com.example.maguoqing.androiddemo.activity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,6 +13,7 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.amulyakhare.textdrawable.TextDrawable;
 import com.example.maguoqing.androiddemo.R;
 import com.example.maguoqing.androiddemo.adapter.MExpandAdapter;
 import com.example.maguoqing.androiddemo.model.CourseItem;
@@ -123,7 +125,9 @@ public class ListActivity extends BaseActivity{
         Map<String, Object> map = new HashMap<>();
         map.put("title", "G1");
         map.put("info", "item1");
-        map.put("img", R.drawable.item1);
+        TextDrawable drawable = TextDrawable.builder()
+                .buildRect("M", Color.RED);
+        map.put("img", drawable);
         mDatas.add(map);
         mDatas.add(map);
         mDatas.add(map);
@@ -176,7 +180,7 @@ public class ListActivity extends BaseActivity{
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            holder.img.setBackgroundResource((Integer) mDatas.get(position).get("img"));
+            holder.img.setImageDrawable((TextDrawable) mDatas.get(position).get("img"));
             holder.title.setText((String) mDatas.get(position).get("title"));
             holder.info.setText((String) mDatas.get(position).get("info"));
 

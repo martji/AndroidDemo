@@ -35,4 +35,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.1.1'
 
     compile(name:'swipe-library-release', ext:'aar')
+    compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 }

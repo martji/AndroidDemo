@@ -1,6 +1,7 @@
 package com.example.maguoqing.androiddemo.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.amulyakhare.textdrawable.TextDrawable;
 import com.example.maguoqing.androiddemo.R;
 import com.example.maguoqing.androiddemo.model.CourseItem;
 import com.example.maguoqing.androiddemo.model.Lesson;
@@ -18,6 +20,10 @@ import java.util.ArrayList;
  * Created by maguoqing on 2016/1/4.
  */
 public class MExpandAdapter extends BaseExpandableListAdapter{
+
+    private static final int[] COLORS = new int[] {
+            Color.GREEN, Color.YELLOW,
+            Color.BLUE, Color.RED };
 
     private final LayoutInflater mInflater;
     private Context context;
@@ -98,11 +104,16 @@ public class MExpandAdapter extends BaseExpandableListAdapter{
         if (view == null) {
             view = mInflater.inflate(R.layout.view_custom_item, null);
         }
+        ImageView image = (ImageView) view.findViewById(R.id.imageView);
         TextView lessonTitle = (TextView) view.findViewById(R.id.title);
         TextView teacherName = (TextView) view.findViewById(R.id.info);
 
+        String name = children.get(groupPosition).get(childPosition).getTeacherName();
+        TextDrawable drawable = TextDrawable.builder()
+                .buildRect(String.valueOf(name.charAt(0)), COLORS[childPosition % COLORS.length]);
+        image.setImageDrawable(drawable);
         lessonTitle.setText(children.get(groupPosition).get(childPosition).getLessonTitle());
-        teacherName.setText(children.get(groupPosition).get(childPosition).getTeacherName());
+        teacherName.setText(name);
 
         return view;
     }

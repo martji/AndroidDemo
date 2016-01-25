@@ -48,6 +48,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         list.add(ScrollviewActivity.class.getSimpleName());
         list.add(StickyActivity.class.getSimpleName());
         list.add(SwipeBackDemoActivity.class.getSimpleName());
+        list.add(AppBarDetailActivity.class.getSimpleName());
 
         MAdapter adapter = new MAdapter(mContext, list);
         listView.setAdapter(adapter);
@@ -97,7 +98,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             ViewHolder holder = null;
             if (view == null) {
                 holder = new ViewHolder();
-                view = mInflater.inflate(R.layout.view_item, null);
+                view = mInflater.inflate(R.layout.view_list_item, null);
                 holder.textView = (TextView) view.findViewById(R.id.id_num);
             } else {
                 holder = (ViewHolder) view.getTag();
