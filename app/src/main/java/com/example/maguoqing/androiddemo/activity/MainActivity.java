@@ -2,6 +2,8 @@ package com.example.maguoqing.androiddemo.activity;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.maguoqing.androiddemo.R;
 import com.example.maguoqing.androiddemo.control.IntentManager;
@@ -16,10 +19,13 @@ import com.example.maguoqing.androiddemo.control.IntentManager;
 import java.util.ArrayList;
 
 
-public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener,
+        SwipeRefreshLayout.OnRefreshListener{
 
     @ViewId(R.id.id_listview)
     private ListView listView;
+
+    private SwipeRefreshLayout mSwipeLayout;
 
     private Context mContext;
 
@@ -40,6 +46,13 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
     protected void initControls() {
         mContext = this;
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
+        mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        mSwipeLayout.setOnRefreshListener(this);
+        mSwipeLayout.setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
+                android.R.color.holo_orange_light, android.R.color.holo_red_light);
+        mSwipeLayout.setDistanceToTriggerSync(300);
+        mSwipeLayout.setSize(SwipeRefreshLayout.LARGE);
 
         ArrayList<String> list = new ArrayList<>();
         list.add(ListActivity.class.getSimpleName());
@@ -62,6 +75,17 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         IntentManager.startActivity(i, mContext);
+    }
+
+    @Override
+    public void onRefresh() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mSwipeLayout.setRefreshing(false);
+                Toast.makeText(mContext, "Refresh succeed!", Toast.LENGTH_SHORT).show();
+            }
+        }, 2000);
     }
 
     class MAdapter extends BaseAdapter {
