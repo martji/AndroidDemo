@@ -1,5 +1,6 @@
 # AndroidDemo
-Android Demo Android studio project.
+Android Demo Android studio project.<br/>
+PS: Demo借鉴了很多好的开源项目,有的是copy了相关的源码,有的是直接添加了dependcies,仅供学习.
 
 Contents
 ---
