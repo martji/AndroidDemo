@@ -1,7 +1,7 @@
 # AndroidDemo
 Android Demo Android studio project.
 
-Conttents
+Contents
 ---
 1. ListView and Adapter (包括可折叠式的ListView)
 2. BottomTab (点击下方tab切换页面)
