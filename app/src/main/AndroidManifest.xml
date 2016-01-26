@@ -33,6 +33,9 @@
         <activity android:name=".activity.ServiceActivity"
             android:label="Service Test">
         </activity>
+        <activity android:name=".activity.NotificationActivity"
+            android:label="Notifications">
+        </activity>
 
         <service android:name=".service.MService"/>
 

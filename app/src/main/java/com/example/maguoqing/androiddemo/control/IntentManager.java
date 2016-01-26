@@ -7,6 +7,7 @@ import android.support.v4.widget.ViewDragHelper;
 import com.example.maguoqing.androiddemo.activity.AppBarDetailActivity;
 import com.example.maguoqing.androiddemo.activity.BottomTabActivity;
 import com.example.maguoqing.androiddemo.activity.ListActivity;
+import com.example.maguoqing.androiddemo.activity.NotificationActivity;
 import com.example.maguoqing.androiddemo.activity.PinnedSectionListActivity;
 import com.example.maguoqing.androiddemo.activity.ScrollviewActivity;
 import com.example.maguoqing.androiddemo.activity.ServiceActivity;
@@ -73,6 +74,12 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startNotificationActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, NotificationActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startActivity(int i, Context context) {
         switch (i) {
             case 0:
@@ -101,6 +108,9 @@ public class IntentManager {
                 break;
             case 8:
                 startServiceActivity(context);
+                break;
+            case 9:
+                startNotificationActivity(context);
                 break;
             default:
                 break;
