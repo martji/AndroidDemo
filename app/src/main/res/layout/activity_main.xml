@@ -10,7 +10,8 @@
         android:background="?attr/colorPrimary"
         android:theme="?attr/actionBarTheme" />
 
-    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/swipe_container"
         android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"

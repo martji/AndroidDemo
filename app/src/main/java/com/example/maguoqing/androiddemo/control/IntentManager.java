@@ -2,6 +2,7 @@ package com.example.maguoqing.androiddemo.control;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.widget.ViewDragHelper;
 
 import com.example.maguoqing.androiddemo.activity.AppBarDetailActivity;
 import com.example.maguoqing.androiddemo.activity.BottomTabActivity;
@@ -10,6 +11,7 @@ import com.example.maguoqing.androiddemo.activity.PinnedSectionListActivity;
 import com.example.maguoqing.androiddemo.activity.ScrollviewActivity;
 import com.example.maguoqing.androiddemo.activity.StickyActivity;
 import com.example.maguoqing.androiddemo.activity.SwipeBackDemoActivity;
+import com.example.maguoqing.androiddemo.activity.ViewDragerActivity;
 
 /**
  * Created by Guoqing on 2015/12/18.
@@ -58,6 +60,12 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startViewDragerActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, ViewDragerActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startActivity(int i, Context context) {
         switch (i) {
             case 0:
@@ -81,6 +89,8 @@ public class IntentManager {
             case 6:
                 startAppBarActivity(context);
                 break;
+            case 7:
+                startViewDragerActivity(context);
             default:
                 break;
         }

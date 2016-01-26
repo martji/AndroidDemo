@@ -27,6 +27,9 @@
         <activity android:name=".activity.BottomTabActivity" ></activity>
         <activity android:name=".activity.ScrollviewActivity" ></activity>
         <activity android:name=".activity.SwipeBackDemoActivity" ></activity>
+        <activity android:name=".activity.ViewDragerActivity"
+            android:label="View Drager">
+        </activity>
     </application>
 
 </manifest>

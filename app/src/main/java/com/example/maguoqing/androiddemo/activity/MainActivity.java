@@ -62,6 +62,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         list.add(StickyActivity.class.getSimpleName());
         list.add(SwipeBackDemoActivity.class.getSimpleName());
         list.add(AppBarDetailActivity.class.getSimpleName());
+        list.add(ViewDragerActivity.class.getSimpleName());
 
         MAdapter adapter = new MAdapter(mContext, list);
         listView.setAdapter(adapter);
