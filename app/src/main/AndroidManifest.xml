@@ -30,6 +30,12 @@
         <activity android:name=".activity.ViewDragerActivity"
             android:label="View Drager">
         </activity>
+        <activity android:name=".activity.ServiceActivity"
+            android:label="Service Test">
+        </activity>
+
+        <service android:name=".service.MService"/>
+
     </application>
 
 </manifest>

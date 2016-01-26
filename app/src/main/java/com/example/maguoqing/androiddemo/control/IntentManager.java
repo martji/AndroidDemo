@@ -9,6 +9,7 @@ import com.example.maguoqing.androiddemo.activity.BottomTabActivity;
 import com.example.maguoqing.androiddemo.activity.ListActivity;
 import com.example.maguoqing.androiddemo.activity.PinnedSectionListActivity;
 import com.example.maguoqing.androiddemo.activity.ScrollviewActivity;
+import com.example.maguoqing.androiddemo.activity.ServiceActivity;
 import com.example.maguoqing.androiddemo.activity.StickyActivity;
 import com.example.maguoqing.androiddemo.activity.SwipeBackDemoActivity;
 import com.example.maguoqing.androiddemo.activity.ViewDragerActivity;
@@ -66,6 +67,12 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startServiceActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, ServiceActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startActivity(int i, Context context) {
         switch (i) {
             case 0:
@@ -91,6 +98,10 @@ public class IntentManager {
                 break;
             case 7:
                 startViewDragerActivity(context);
+                break;
+            case 8:
+                startServiceActivity(context);
+                break;
             default:
                 break;
         }
