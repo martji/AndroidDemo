@@ -10,10 +10,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar" >
-        <activity android:name=".activity.MainActivity" >
+        <activity android:name=".activity.MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,13 +28,22 @@
         <activity android:name=".activity.ScrollviewActivity" ></activity>
         <activity android:name=".activity.SwipeBackDemoActivity" ></activity>
         <activity android:name=".activity.ViewDragerActivity"
-            android:label="View Drager">
+            android:label="View Drager"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity"/>
         </activity>
         <activity android:name=".activity.ServiceActivity"
             android:label="Service Test">
         </activity>
         <activity android:name=".activity.NotificationActivity"
+            android:parentActivityName=".activity.MainActivity"
+            android:launchMode="singleTask"
             android:label="Notifications">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity"/>
         </activity>
 
         <service android:name=".service.MService"/>

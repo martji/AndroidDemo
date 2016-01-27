@@ -24,9 +24,21 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Show Back Notification"
+        android:id="@+id/btn_back_notification"
+        android:layout_below="@+id/btn_simple_notification"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Clear Notification"
         android:id="@+id/btn_clear_notification"
-        android:layout_below="@+id/btn_simple_notification"
+        android:layout_below="@+id/btn_back_notification"
         android:layout_marginTop="10dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
