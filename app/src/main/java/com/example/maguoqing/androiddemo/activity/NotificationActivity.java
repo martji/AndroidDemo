@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.maguoqing.androiddemo.R;
+import com.example.maguoqing.androiddemo.base.BaseActivity;
 import com.example.maguoqing.androiddemo.service.MDownloadTask;
 
 /**

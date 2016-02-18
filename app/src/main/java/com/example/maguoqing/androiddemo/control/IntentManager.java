@@ -13,6 +13,7 @@ import com.example.maguoqing.androiddemo.activity.ScrollviewActivity;
 import com.example.maguoqing.androiddemo.activity.ServiceActivity;
 import com.example.maguoqing.androiddemo.activity.StickyActivity;
 import com.example.maguoqing.androiddemo.activity.SwipeBackDemoActivity;
+import com.example.maguoqing.androiddemo.activity.TabHostActivity;
 import com.example.maguoqing.androiddemo.activity.ViewDragerActivity;
 
 /**
@@ -46,7 +47,7 @@ public class IntentManager {
 
     public static void startBottomTabActivity (Context context) {
         Intent intent = new Intent();
-        intent.setClass(context, BottomTabActivity.class);
+        intent.setClass(context, TabHostActivity.class);
         context.startActivity(intent);
     }
 

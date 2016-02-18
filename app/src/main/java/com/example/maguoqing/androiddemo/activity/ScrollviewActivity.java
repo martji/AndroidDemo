@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.widget.TextView;
 
 import com.example.maguoqing.androiddemo.R;
+import com.example.maguoqing.androiddemo.base.BaseActivity;
 import com.example.maguoqing.androiddemo.view.OverScrollView;
 
 /**

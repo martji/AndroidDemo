@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/tab_rg_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ccc"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true" >
+
+        <RadioButton
+            android:id="@+id/tab_home"
+            style="@style/main_tab_bottom"
+            android:checked="true"
+            android:drawableTop="@drawable/tab_home_selector"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/tab_explore"
+            style="@style/main_tab_bottom"
+            android:checked="false"
+            android:drawableTop="@drawable/tab_explore_selector"
+            android:text="发现" />
+
+        <RadioButton
+            android:id="@+id/tab_account"
+            style="@style/main_tab_bottom"
+            android:checked="false"
+            android:drawableTop="@drawable/tab_account_selector"
+            android:text="账户" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/tab_rg_menu"/>
+
+    <FrameLayout
+        android:id="@+id/lv_tab_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/divider" />
+
+    <com.example.maguoqing.androiddemo.view.FragmentTabHost
+        android:id="@+id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+    </com.example.maguoqing.androiddemo.view.FragmentTabHost>
+
+
+</RelativeLayout>

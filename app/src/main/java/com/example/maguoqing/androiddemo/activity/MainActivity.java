@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.maguoqing.androiddemo.R;
+import com.example.maguoqing.androiddemo.base.BaseActivity;
 import com.example.maguoqing.androiddemo.control.IntentManager;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.maguoqing.androiddemo.activity;
+package com.example.maguoqing.androiddemo.base;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,59 +15,26 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.lang.reflect.Field;
 
-/**
- * Created by Guoqing on 2015/12/24.
- */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseFragmentActivity extends AppCompatActivity {
 
     protected Toolbar toolbar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        int layoutId = getActivityLayout();
+        int layoutId = getLayoutId();
         if (layoutId != -1) {
             setContentView(layoutId);
         }
-
-        readIntent();
         if (findViewById(R.id.toolbar) != null){
             toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
+        readIntent();
         setControl();
-        initControls();
+        initControls(savedInstanceState);
         setListeners();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    protected abstract void setListeners();
-
-    protected abstract void readIntent();
-
-    protected abstract void initControls();
-
-    protected abstract int getActivityLayout();
-
-    @Override
-    public void onClick(View v) {
 
     }
 
@@ -105,4 +72,45 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    /**
+     * get layout id for fragment
+     *
+     * @return
+     */
+    protected abstract int getLayoutId();
+
+    /**
+     * read intent from last object
+     *
+     * @return
+     */
+    protected abstract void readIntent();
+
+    /**
+     * init base values
+     *
+     * @return
+     */
+    protected abstract void initControls(Bundle savedInstanceState);
+
+    /**
+     * set listener for fragment views
+     */
+    protected abstract void setListeners();
 }

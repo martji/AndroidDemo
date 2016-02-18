@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.example.maguoqing.androiddemo.R;
+import com.example.maguoqing.androiddemo.base.BaseActivity;
 import com.example.maguoqing.androiddemo.adapter.MExpandAdapter;
 import com.example.maguoqing.androiddemo.model.CourseItem;
 import com.example.maguoqing.androiddemo.model.Lesson;
@@ -26,7 +27,7 @@ import java.util.Map;
 
 import me.drakeet.materialdialog.MaterialDialog;
 
-public class ListActivity extends BaseActivity{
+public class ListActivity extends BaseActivity {
 
 //    @ViewId(R.id.id_listview)
 //    private ListView mRecyclerView;

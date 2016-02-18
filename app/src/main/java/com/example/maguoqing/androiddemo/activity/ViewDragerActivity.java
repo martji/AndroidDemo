@@ -3,6 +3,7 @@ package com.example.maguoqing.androiddemo.activity;
 import android.widget.TextView;
 
 import com.example.maguoqing.androiddemo.R;
+import com.example.maguoqing.androiddemo.base.BaseActivity;
 
 /**
  * Created by magq on 16/1/26.
