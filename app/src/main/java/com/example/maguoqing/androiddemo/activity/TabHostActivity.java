@@ -1,5 +1,6 @@
 package com.example.maguoqing.androiddemo.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -81,4 +82,7 @@ public class TabHostActivity extends BaseFragmentActivity implements
                 break;
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {}
 }
