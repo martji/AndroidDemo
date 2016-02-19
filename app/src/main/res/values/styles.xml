@@ -12,6 +12,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="AppTheme.NoActionBar.Ripple">
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+    </style>
 
     <style name="MyDialog" parent="android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
@@ -30,19 +33,24 @@
         <item name="tabSelectedTextColor">@color/colorPrimary</item>
     </style>
 
-    <style name="main_tab_bottom">
+    <style name="SelectableItemTheme">
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+    </style>
+
+    <style name="main_tab_bottom" parent="SelectableItemTheme">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@drawable/tab_text_selector</item>
-        <item name="android:gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">bottom</item>
 
-        <item name="android:paddingTop">4dp</item>
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1.0</item>
 
         <item name="android:button">@null</item>
-        <item name="android:layout_marginTop">1.0dip</item>
-        <item name="android:paddingBottom">5.0dip</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">4dip</item>
     </style>
 
 </resources>

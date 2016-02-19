@@ -6,8 +6,6 @@
         android:id="@+id/tab_rg_menu"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#ccc"
-        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true" >
 
@@ -37,6 +35,7 @@
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
+        android:background="#ccc"
         android:layout_height="1dp"
         android:layout_above="@id/tab_rg_menu"/>
 
