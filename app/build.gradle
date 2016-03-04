@@ -36,4 +36,6 @@ dependencies {
 
     compile(name:'swipe-library-release', ext:'aar')
     compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    compile 'com.github.satyan:sugar:1.4'
+    compile 'com.umeng.analytics:analytics:latest.integration'
 }

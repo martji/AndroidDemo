@@ -168,7 +168,7 @@ public class PinnedSectionListActivity extends ListActivity implements OnClickLi
 	}
 
 	private boolean hasHeaderAndFooter;
-	private boolean isFastScroll;
+	private boolean isFastScroll = true;
 	private boolean addPadding;
 	private boolean isShadowVisible = true;
 	private int mDatasetUpdateCount;

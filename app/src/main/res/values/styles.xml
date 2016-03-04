@@ -33,6 +33,12 @@
         <item name="tabSelectedTextColor">@color/colorPrimary</item>
     </style>
 
+    <style name="toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
     <style name="SelectableItemTheme">
         <item name="colorControlHighlight">@color/colorPrimary</item>
     </style>

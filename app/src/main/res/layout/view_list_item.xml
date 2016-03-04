@@ -3,7 +3,7 @@
     android:layout_height="wrap_content" >
 
     <TextView
-        android:id="@+id/id_num"
+        android:id="@+id/tv_aty_name"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:gravity="center"

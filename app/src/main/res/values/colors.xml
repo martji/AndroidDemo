@@ -32,4 +32,9 @@
     <color name="androidColorC">#99CC00</color>
     <color name="androidColorD">#FFBB33</color>
     <color name="androidColorE">#FF4444</color>
+
+
+    <color name="audio_play_bg">#5FCE6D</color>
+    <color name="audio_pause_bg">#E5E5E5</color>
+    <color name="audio_left">#CFCFCF</color>
 </resources>

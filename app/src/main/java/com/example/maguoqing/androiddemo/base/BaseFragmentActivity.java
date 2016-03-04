@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.maguoqing.androiddemo.R;
+import com.umeng.analytics.MobclickAgent;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -76,11 +77,13 @@ public abstract class BaseFragmentActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        MobclickAgent.onPause(this);
     }
 
     @Override

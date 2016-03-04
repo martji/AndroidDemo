@@ -3,13 +3,30 @@
     package="com.example.maguoqing.androiddemo" >
 
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+
+    <meta-data android:name="DATABASE" android:value="demo.db"/>
+    <meta-data android:name="VERSION" android:value="2"/>
+    <meta-data android:name="QUERY_LOG" android:value="true"/>
+    <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.example.maguoqing.androiddemo.entity"/>
 
     <application
+        android:name=".AndroidDemoApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar" >
+
+        <meta-data android:value="56d8f87867e58ef322000a59" android:name="UMENG_APPKEY"></meta-data>
+        <meta-data android:value="index" android:name="UMENG_CHANNEL"/>
+
         <activity android:name=".activity.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
@@ -45,8 +62,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity"/>
         </activity>
-        <activity android:name=".activity.TabHostActivity">
+        <activity android:name=".activity.TabHostActivity"></activity>
+        <activity
+            android:name=".activity.AnimationActivity"
+            android:label="Animation">
         </activity>
+        <activity
+            android:name=".activity.AnimatorViewActivity"
+            android:label="Animator View">
+        </activity>
+        <activity
+            android:name=".activity.ViewTouchActivity">
+        </activity>
+        <activity android:name=".activity.AudioPlayerActivity"/>
+        <activity android:name=".activity.SugarActivity"/>
 
         <service android:name=".service.MService"/>
 

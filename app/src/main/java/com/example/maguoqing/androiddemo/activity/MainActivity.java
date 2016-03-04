@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,16 +57,20 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         mSwipeLayout.setSize(SwipeRefreshLayout.LARGE);
 
         ArrayList<String> list = new ArrayList<>();
-        list.add(ListActivity.class.getSimpleName());
-        list.add(BottomTabActivity.class.getSimpleName());
-        list.add(PinnedSectionListActivity.class.getSimpleName());
-        list.add(ScrollviewActivity.class.getSimpleName());
-        list.add(StickyActivity.class.getSimpleName());
-        list.add(SwipeBackDemoActivity.class.getSimpleName());
-        list.add(AppBarDetailActivity.class.getSimpleName());
-        list.add(ViewDragerActivity.class.getSimpleName());
-        list.add(ServiceActivity.class.getSimpleName());
-        list.add(NotificationActivity.class.getSimpleName());
+        list.add("ListActivity");
+        list.add("BottomTabActivity");
+        list.add("PinnedSectionListActivity");
+        list.add("ScrollviewActivity");
+        list.add("StickyActivity");
+        list.add("SwipeBackDemoActivity");
+        list.add("AppBarDetailActivity");
+        list.add("ViewDragerActivity");
+        list.add("ServiceActivity");
+        list.add("NotificationActivity");
+        list.add("AnimationActivity");
+        list.add("ViewTouchActivity");
+        list.add("AudioPlayerActivity");
+        list.add("SugarActivity");
 
         MAdapter adapter = new MAdapter(mContext, list);
         listView.setAdapter(adapter);
@@ -113,7 +118,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
         @Override
         public Object getItem(int i) {
-            return null;
+            return data.get(i);
         }
 
         @Override
@@ -124,18 +129,17 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             ViewHolder holder = null;
+            Log.d("TAG", data.get(i));
             if (view == null) {
                 holder = new ViewHolder();
                 view = mInflater.inflate(R.layout.view_list_item, null);
-                holder.textView = (TextView) view.findViewById(R.id.id_num);
+                holder.textView = (TextView) view.findViewById(R.id.tv_aty_name);
+                view.setTag(holder);
             } else {
                 holder = (ViewHolder) view.getTag();
             }
-            if (holder != null) {
-                holder.textView.setText(data.get(i));
-                holder.textView.setBackgroundColor(Color.WHITE);
-            }
-
+            holder.textView.setText(data.get(i));
+            holder.textView.setBackgroundColor(Color.WHITE);
             return view;
         }
     }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/audio_bg"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:visibility="visible"
+    android:background="@color/audio_pause_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/audio_btn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="24dp"
+        android:src="@drawable/icon_audio_play"/>
+
+    <SeekBar
+        android:id="@+id/audio_seek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="2dip"
+        android:minHeight="2dip"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/audio_btn"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:progressDrawable="@drawable/audio_seekbar"
+        android:thumbTint="@color/white"/>
+
+</RelativeLayout>
