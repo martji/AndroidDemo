@@ -14,5 +14,9 @@ Contents
 8. ViewDrager （ViewDragerHelper实践）
 9. Service and Broadcast
 10. Notification and AsyncTask
+11. Property animation (属性动画)
+12. View touch 事件检测
+13. AudioPlayerView (自定义的音频播放组件,利用自导MediaPlayer)
+14. Sugar orm (简单使用)
 
 

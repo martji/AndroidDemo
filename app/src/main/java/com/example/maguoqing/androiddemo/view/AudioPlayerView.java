@@ -79,11 +79,13 @@ public class AudioPlayerView extends FrameLayout {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                stopTimer();
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 player.seekTo(seekBar.getProgress());
+                startTimer();
             }
         });
     }
@@ -93,8 +95,10 @@ public class AudioPlayerView extends FrameLayout {
         super.onFinishInflate();
     }
 
-    public void setTimer() {
-        mTimer = new Timer();
+    public void startTimer() {
+        if (mTimer == null) {
+            mTimer = new Timer();
+        }
         mTimerTask = new TimerTask() {
             @Override
             public void run() {
@@ -107,17 +111,29 @@ public class AudioPlayerView extends FrameLayout {
         };
         mTimer.schedule(mTimerTask, 0, 10);
     }
+    public void stopTimer() {
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+        }
+    }
 
     public void setContent(String audioPath) {
         this.audioPath = audioPath;
         File file = new File(audioPath);
-        try {
-            player.setDataSource(audioPath);
-            player.prepare();
-            playerSeek.setMax(getAudioLength());
-            setTimer();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (file.exists() && file.length() > 0) {
+            try {
+                player = new MediaPlayer();
+                player.setDataSource(audioPath);
+                player.prepare();
+                playerSeek.setMax(getAudioLength());
+                startTimer();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (file.length() == 0) {
+            playerBg.setBackgroundColor(getResources().getColor(R.color.audio_pause_bg));
+            playerBtn.setImageResource(R.drawable.icon_audio_play);
         }
     }
 
@@ -141,7 +157,6 @@ public class AudioPlayerView extends FrameLayout {
 
     public void pause() {
         if (!isPaused) {
-            playerBg.setBackgroundColor(getResources().getColor(R.color.audio_pause_bg));
             playerBtn.setImageResource(R.drawable.icon_audio_play);
             isPaused = ! isPaused;
 
@@ -153,5 +168,14 @@ public class AudioPlayerView extends FrameLayout {
         }
     }
 
+    public void stop() {
+        if (player != null) {
+            if (mTimer != null) {
+                mTimer.cancel();
+            }
+            player.stop();
+            player.release();
+        }
+    }
 
 }

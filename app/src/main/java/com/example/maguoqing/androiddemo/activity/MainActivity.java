@@ -129,7 +129,6 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             ViewHolder holder = null;
-            Log.d("TAG", data.get(i));
             if (view == null) {
                 holder = new ViewHolder();
                 view = mInflater.inflate(R.layout.view_list_item, null);
