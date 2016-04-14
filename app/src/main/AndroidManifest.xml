@@ -76,6 +76,11 @@
         </activity>
         <activity android:name=".activity.AudioPlayerActivity"/>
         <activity android:name=".activity.SugarActivity"/>
+        <activity android:name=".activity.VolleyActivity"/>
+        <activity
+            android:name=".activity.IJKPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="sensor"/>
 
         <service android:name=".service.MService"/>
 

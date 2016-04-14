@@ -8,6 +8,7 @@ import com.example.maguoqing.androiddemo.activity.AnimationActivity;
 import com.example.maguoqing.androiddemo.activity.AppBarDetailActivity;
 import com.example.maguoqing.androiddemo.activity.AudioPlayerActivity;
 import com.example.maguoqing.androiddemo.activity.BottomTabActivity;
+import com.example.maguoqing.androiddemo.activity.IJKPlayerActivity;
 import com.example.maguoqing.androiddemo.activity.ListActivity;
 import com.example.maguoqing.androiddemo.activity.NotificationActivity;
 import com.example.maguoqing.androiddemo.activity.PinnedSectionListActivity;
@@ -19,6 +20,7 @@ import com.example.maguoqing.androiddemo.activity.SwipeBackDemoActivity;
 import com.example.maguoqing.androiddemo.activity.TabHostActivity;
 import com.example.maguoqing.androiddemo.activity.ViewDragerActivity;
 import com.example.maguoqing.androiddemo.activity.ViewTouchActivity;
+import com.example.maguoqing.androiddemo.activity.VolleyActivity;
 import com.example.maguoqing.androiddemo.view.AudioPlayerView;
 
 /**
@@ -110,6 +112,18 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startVolleyActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, VolleyActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void startIJKPlayerActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, IJKPlayerActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startActivity(int i, Context context) {
         switch (i) {
             case 0:
@@ -154,6 +168,11 @@ public class IntentManager {
             case 13:
                 startSugarActivity(context);
                 break;
+            case 14:
+                startVolleyActivity(context);
+                break;
+            case 15:
+                startIJKPlayerActivity(context);
             default:
                 break;
         }

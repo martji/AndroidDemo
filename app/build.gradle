@@ -28,6 +28,7 @@ repositories {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
+    compile project(':giraffeplayer')
     compile 'me.drakeet.materialdialog:library:1.2.8'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
@@ -38,4 +39,5 @@ dependencies {
     compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
     compile 'com.github.satyan:sugar:1.4'
     compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
 }

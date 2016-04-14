@@ -71,6 +71,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         list.add("ViewTouchActivity");
         list.add("AudioPlayerActivity");
         list.add("SugarActivity");
+        list.add("VolleyActivity");
+        list.add("IJKPlayerActivity");
 
         MAdapter adapter = new MAdapter(mContext, list);
         listView.setAdapter(adapter);

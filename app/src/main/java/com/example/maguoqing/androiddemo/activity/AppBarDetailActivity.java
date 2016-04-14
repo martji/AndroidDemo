@@ -1,6 +1,7 @@
 package com.example.maguoqing.androiddemo.activity;
 
 import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
@@ -45,10 +46,10 @@ public class AppBarDetailActivity extends AppCompatActivity {
 
 
         CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle("失控");
+        collapsingToolbar.setTitle("考研英语核心500词");
 
-        ImageView ivImage = (ImageView)findViewById(R.id.ivImage);
-        ivImage.setImageResource(R.drawable.book1);
+//        ImageView ivImage = (ImageView)findViewById(R.id.ivImage);
+//        ivImage.setImageResource(R.drawable.book1);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(mViewPager);
