@@ -18,5 +18,8 @@ Contents
 12. View touch 事件检测
 13. AudioPlayerView (自定义的音频播放组件,利用自导MediaPlayer)
 14. Sugar orm (简单使用)
+15. Calendar Month(支持备忘的日历月视图)
+
+![Calendar Month](screenshots/calendar_month.jpg)
 
 
