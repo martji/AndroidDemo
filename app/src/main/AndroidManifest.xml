@@ -79,8 +79,9 @@
         <activity android:name=".activity.VolleyActivity"/>
         <activity
             android:name=".activity.IJKPlayerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="sensor"/>
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".activity.CalendarMonthActivity"
+            android:label="Calendar Month"/>
 
         <service android:name=".service.MService"/>
 

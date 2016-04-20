@@ -8,6 +8,7 @@ import com.example.maguoqing.androiddemo.activity.AnimationActivity;
 import com.example.maguoqing.androiddemo.activity.AppBarDetailActivity;
 import com.example.maguoqing.androiddemo.activity.AudioPlayerActivity;
 import com.example.maguoqing.androiddemo.activity.BottomTabActivity;
+import com.example.maguoqing.androiddemo.activity.CalendarMonthActivity;
 import com.example.maguoqing.androiddemo.activity.IJKPlayerActivity;
 import com.example.maguoqing.androiddemo.activity.ListActivity;
 import com.example.maguoqing.androiddemo.activity.NotificationActivity;
@@ -124,6 +125,12 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startCalendarMonthActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, CalendarMonthActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startActivity(int i, Context context) {
         switch (i) {
             case 0:
@@ -173,6 +180,10 @@ public class IntentManager {
                 break;
             case 15:
                 startIJKPlayerActivity(context);
+                break;
+            case 16:
+                startCalendarMonthActivity(context);
+                break;
             default:
                 break;
         }

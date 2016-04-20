@@ -30,7 +30,7 @@ public class IJKPlayerActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //callback when video is finish
-                Toast.makeText(getApplicationContext(), "video play completed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "video play completed", Toast.LENGTH_SHORT).show();
             }
         }).onInfo(new GiraffePlayer.OnInfoListener() {
             @Override
@@ -44,7 +44,7 @@ public class IJKPlayerActivity extends AppCompatActivity {
                         break;
                     case IMediaPlayer.MEDIA_INFO_NETWORK_BANDWIDTH:
                         //download speed
-                        ((TextView) findViewById(R.id.tv_speed)).setText(Formatter.formatFileSize(getApplicationContext(),extra)+"/s");
+                        ((TextView) findViewById(R.id.tv_speed)).setText(Formatter.formatFileSize(getApplicationContext(), extra) + "/s");
                         break;
                     case IMediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:
                         //do something when video rendering
@@ -55,7 +55,7 @@ public class IJKPlayerActivity extends AppCompatActivity {
         }).onError(new GiraffePlayer.OnErrorListener() {
             @Override
             public void onError(int what, int extra) {
-                Toast.makeText(getApplicationContext(), "video play error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "video play error", Toast.LENGTH_SHORT).show();
             }
         });
         View.OnClickListener clickListener = new View.OnClickListener() {
@@ -75,14 +75,14 @@ public class IJKPlayerActivity extends AppCompatActivity {
                     ((EditText) findViewById(R.id.et_url)).setText(url);
                     player.play(url);
                     player.setTitle(url);
-                    player.setShowNavIcon(false);
-                }else if (v.getId() == R.id.btn_play_sample_3) {
+//                    player.setShowNavIcon(false);
+                } else if (v.getId() == R.id.btn_play_sample_3) {
                     String url = "https://r13---sn-o097znes.googlevideo.com/videoplayback?mt=1455852432&mv=m&ms=au&source=youtube&key=yt6&requiressl=yes&mm=31&mn=sn-o097znes&initcwndbps=16485000&id=o-AEGdeTbgSTzVGqwV2s8MjH5mlDPz3APWVwGfftr9GDqy&upn=D3A5w5WYU1k&lmt=1410665930307178&ip=2600:3c01::f03c:91ff:fe70:35ff&sparams=dur,id,initcwndbps,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,nh,pl,ratebypass,requiressl,source,upn,expire&fexp=9416126,9420452,9422596,9423341,9423661,9423662,9424038,9424862,9425077,9425730,9426472,9426698,9427379,9428544,9428649,9429218,9429237,9429435,9429589&pl=32&dur=106.370&sver=3&expire=1455874197&nh=IgpwcjAxLnNqYzA3KgkxMjcuMC4wLjE&ratebypass=yes&mime=video/mp4&itag=18&signature=22C4633FCD1259D5F6CD1E0B54AB649982895534.378BAAC5AFAAEA737246C5CE5B92212E40B765BD&ipbits=0";
                     ((EditText) findViewById(R.id.et_url)).setText(url);
                     player.play(url);
                     player.setTitle(url);
-                    player.setShowNavIcon(false);
-                }else if (v.getId() == R.id.btn_open) {
+//                    player.setShowNavIcon(false);
+                } else if (v.getId() == R.id.btn_open) {
                     String url = ((EditText) findViewById(R.id.et_url)).getText().toString();
                     GiraffePlayerActivity.configPlayer(IJKPlayerActivity.this).setTitle(url).play(url);
 //                    more configuration example:
@@ -92,17 +92,17 @@ public class IJKPlayerActivity extends AppCompatActivity {
 //                            .setFullScreenOnly(false)
 //                            .setTitle(url)
 //                            .play(url);
-                }else if (v.getId() == R.id.btn_start) {
+                } else if (v.getId() == R.id.btn_start) {
                     player.start();
-                }else if (v.getId() == R.id.btn_pause) {
+                } else if (v.getId() == R.id.btn_pause) {
                     player.pause();
-                }else if (v.getId() == R.id.btn_toggle) {
+                } else if (v.getId() == R.id.btn_toggle) {
                     player.toggleFullScreen();
-                }else if (v.getId() == R.id.btn_forward) {
+                } else if (v.getId() == R.id.btn_forward) {
                     player.forward(0.2f);
-                }else if (v.getId() == R.id.btn_back) {
+                } else if (v.getId() == R.id.btn_back) {
                     player.forward(-0.2f);
-                }else if (v.getId() == R.id.btn_toggle_ratio) {
+                } else if (v.getId() == R.id.btn_toggle_ratio) {
                     player.toggleAspectRatio();
                 }
             }
