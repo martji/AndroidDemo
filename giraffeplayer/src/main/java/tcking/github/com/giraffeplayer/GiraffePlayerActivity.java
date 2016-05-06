@@ -33,7 +33,7 @@ public class GiraffePlayerActivity extends Activity {
             player.setFullScreenOnly(config.fullScreenOnly);
             player.setScaleType(TextUtils.isEmpty(config.scaleType) ? GiraffePlayer.SCALETYPE_FITPARENT : config.scaleType);
             player.setTitle(TextUtils.isEmpty(config.title) ? "" : config.title);
-            player.setShowNavIcon(config.showNavIcon);
+//            player.setShowNavIcon(config.showNavIcon);
             player.play(config.url);
         }
     }

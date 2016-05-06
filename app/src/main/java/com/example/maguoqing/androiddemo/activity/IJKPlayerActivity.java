@@ -26,38 +26,43 @@ public class IJKPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ijkplayer);
         player = new GiraffePlayer(this);
-        player.onComplete(new Runnable() {
-            @Override
-            public void run() {
-                //callback when video is finish
-                Toast.makeText(getApplicationContext(), "video play completed", Toast.LENGTH_SHORT).show();
-            }
-        }).onInfo(new GiraffePlayer.OnInfoListener() {
-            @Override
-            public void onInfo(int what, int extra) {
-                switch (what) {
-                    case IMediaPlayer.MEDIA_INFO_BUFFERING_START:
-                        //do something when buffering start
-                        break;
-                    case IMediaPlayer.MEDIA_INFO_BUFFERING_END:
-                        //do something when buffering end
-                        break;
-                    case IMediaPlayer.MEDIA_INFO_NETWORK_BANDWIDTH:
-                        //download speed
-                        ((TextView) findViewById(R.id.tv_speed)).setText(Formatter.formatFileSize(getApplicationContext(), extra) + "/s");
-                        break;
-                    case IMediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:
-                        //do something when video rendering
-                        findViewById(R.id.tv_speed).setVisibility(View.GONE);
-                        break;
-                }
-            }
-        }).onError(new GiraffePlayer.OnErrorListener() {
-            @Override
-            public void onError(int what, int extra) {
-                Toast.makeText(getApplicationContext(), "video play error", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+
+//        player.onComplete(new Runnable() {
+//            @Override
+//            public void run() {
+//                //callback when video is finish
+//                Toast.makeText(getApplicationContext(), "video play completed", Toast.LENGTH_SHORT).show();
+//            }
+//        }).onInfo(new GiraffePlayer.OnInfoListener() {
+//            @Override
+//            public void onInfo(int what, int extra) {
+//                switch (what) {
+//                    case IMediaPlayer.MEDIA_INFO_BUFFERING_START:
+//                        //do something when buffering start
+//                        break;
+//                    case IMediaPlayer.MEDIA_INFO_BUFFERING_END:
+//                        //do something when buffering end
+//                        break;
+//                    case IMediaPlayer.MEDIA_INFO_NETWORK_BANDWIDTH:
+//                        //download speed
+//                        ((TextView) findViewById(R.id.tv_speed)).setText(Formatter.formatFileSize(getApplicationContext(), extra) + "/s");
+//                        break;
+//                    case IMediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:
+//                        //do something when video rendering
+//                        findViewById(R.id.tv_speed).setVisibility(View.GONE);
+//                        break;
+//                }
+//            }
+//        }).onError(new GiraffePlayer.OnErrorListener() {
+//            @Override
+//            public void onError(int what, int extra) {
+//                Toast.makeText(getApplicationContext(), "video play error", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+
+
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +77,7 @@ public class IJKPlayerActivity extends AppCompatActivity {
                     player.setTitle(url);
                 } else if (v.getId() == R.id.btn_play_sample_2) {
                     String url = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+//                    url = "http://stream.youdao.com/cetVideo/CET6/1_201506_01/1writing.mp4";
                     ((EditText) findViewById(R.id.et_url)).setText(url);
                     player.play(url);
                     player.setTitle(url);

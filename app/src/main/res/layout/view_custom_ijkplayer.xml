@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/player_box"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <tcking.github.com.giraffeplayer.IjkVideoView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </tcking.github.com.giraffeplayer.IjkVideoView>
+
+    <RelativeLayout
+        android:id="@+id/rl_player_controller"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_player_play_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_play_circle_outline_white_36dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:background="#66000000">
+
+            <TextView
+                android:id="@+id/tv_player_time_used"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ts_9"
+                android:layout_marginLeft="6dp"
+                android:text="20:20:44"/>
+
+            <SeekBar
+                android:id="@+id/sb_player"
+                android:layout_toRightOf="@+id/tv_player_time_used"
+                android:layout_toLeftOf="@+id/tv_player_time_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="2.9dp"
+                android:minHeight="2.9dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:progressDrawable="@drawable/player_seekbar"
+                android:thumbTint="@color/white"
+                android:progress="30"
+                android:secondaryProgress="60"/>
+
+            <TextView
+                android:id="@+id/tv_player_time_total"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/iv_player_full_screen"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ts_9"
+                android:text="40:20:44"/>
+
+            <ImageView
+                android:id="@+id/iv_player_full_screen"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
