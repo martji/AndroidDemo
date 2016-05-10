@@ -37,4 +37,7 @@
     <color name="audio_play_bg">#5FCE6D</color>
     <color name="audio_pause_bg">#E5E5E5</color>
     <color name="audio_left">#CFCFCF</color>
+
+    <color name="course_bg">#66AA66CC</color>
+    <color name="course_bg_dark">#AA66CC</color>
 </resources>

@@ -2,12 +2,11 @@ package com.example.maguoqing.androiddemo.control;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.widget.ViewDragHelper;
 
+import com.example.maguoqing.androiddemo.activity.MPanelViewActivity;
 import com.example.maguoqing.androiddemo.activity.AnimationActivity;
 import com.example.maguoqing.androiddemo.activity.AppBarDetailActivity;
 import com.example.maguoqing.androiddemo.activity.AudioPlayerActivity;
-import com.example.maguoqing.androiddemo.activity.BottomTabActivity;
 import com.example.maguoqing.androiddemo.activity.CalendarMonthActivity;
 import com.example.maguoqing.androiddemo.activity.IJKPlayerActivity;
 import com.example.maguoqing.androiddemo.activity.ListActivity;
@@ -22,7 +21,6 @@ import com.example.maguoqing.androiddemo.activity.TabHostActivity;
 import com.example.maguoqing.androiddemo.activity.ViewDragerActivity;
 import com.example.maguoqing.androiddemo.activity.ViewTouchActivity;
 import com.example.maguoqing.androiddemo.activity.VolleyActivity;
-import com.example.maguoqing.androiddemo.view.AudioPlayerView;
 
 /**
  * Created by Guoqing on 2015/12/18.
@@ -131,6 +129,12 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startMPanelViewActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, MPanelViewActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startActivity(int i, Context context) {
         switch (i) {
             case 0:
@@ -183,6 +187,9 @@ public class IntentManager {
                 break;
             case 16:
                 startCalendarMonthActivity(context);
+                break;
+            case 17:
+                startMPanelViewActivity(context);
                 break;
             default:
                 break;
