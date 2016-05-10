@@ -12,16 +12,20 @@ import android.widget.LinearLayout;
 import com.example.maguoqing.androiddemo.R;
 import com.example.maguoqing.androiddemo.adapter.CalendarAdapter;
 
+import java.util.Date;
+
 public class CalendarFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private CalendarAdapter adapter;
 
     private int mPageNumber;
+    private OnDayClickListener onDayClickListener;
 
-    public static Fragment create(int pageNumber) {
+    public static Fragment create(int pageNumber, OnDayClickListener onDayClickListener) {
         CalendarFragment fragment = new CalendarFragment();
         fragment.mPageNumber = pageNumber;
+        fragment.onDayClickListener = onDayClickListener;
         return fragment;
     }
 
@@ -40,9 +44,13 @@ public class CalendarFragment extends Fragment {
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_calendar_month);
         GridLayoutManager mgr=new GridLayoutManager(getActivity(), 7);
         recyclerView.setLayoutManager(mgr);
-        adapter = new CalendarAdapter();
+        adapter = new CalendarAdapter(onDayClickListener);
         adapter.setPageNumber(mPageNumber);
         recyclerView.setAdapter(adapter);
         return rootView;
+    }
+
+    public interface OnDayClickListener {
+        void onClick();
     }
 }

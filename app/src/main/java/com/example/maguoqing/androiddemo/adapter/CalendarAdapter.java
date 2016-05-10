@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.maguoqing.androiddemo.R;
+import com.example.maguoqing.androiddemo.fragment.CalendarFragment;
 import com.example.maguoqing.androiddemo.model.ClipItem;
 import com.example.maguoqing.androiddemo.utils.Utils;
 
@@ -27,9 +28,15 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Itemho
     private List<ClipItem> datas;
     private Context mContext;
 
+    private CalendarFragment.OnDayClickListener onDayClickListener;
+
     private Calendar calStartDate = Calendar.getInstance();
     private int iMonthViewCurrentMonth = 0;
     private Calendar today = Calendar.getInstance();
+
+    public CalendarAdapter(CalendarFragment.OnDayClickListener onDayClickListener) {
+        this.onDayClickListener = onDayClickListener;
+    }
 
     public void setPageNumber(int pageNumber) {
         this.mPageNumber = pageNumber;
@@ -112,6 +119,13 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Itemho
         if (item.getDate().getMonth() != iMonthViewCurrentMonth) {
             holder.llContainer.setBackgroundResource(R.drawable.layout_divider_gray);
         }
+
+        holder.llContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDayClickListener.onClick();
+            }
+        });
     }
 
     private Boolean equalsDate(Date date1, Date date2) {

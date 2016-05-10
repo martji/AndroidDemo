@@ -1,5 +1,6 @@
 package com.example.maguoqing.androiddemo.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.maguoqing.androiddemo.R;
 import com.example.maguoqing.androiddemo.base.BaseFragmentActivity;
+import com.example.maguoqing.androiddemo.control.IntentManager;
 import com.example.maguoqing.androiddemo.fragment.CalendarFragment;
 import com.example.maguoqing.androiddemo.utils.Utils;
 
@@ -25,6 +27,8 @@ public class CalendarMonthActivity extends BaseFragmentActivity {
     private TextView tvMonth;
 
     private String month;
+
+    private Context mContext;
 
     @Override
     protected void setListeners() {
@@ -63,6 +67,7 @@ public class CalendarMonthActivity extends BaseFragmentActivity {
 
     @Override
     protected void initControls(Bundle savedInstanceState) {
+        mContext = this;
         ScreenSlidePagerAdapter screenSlidePagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
         viewPager.setAdapter(screenSlidePagerAdapter);
         viewPager.setCurrentItem(500);
@@ -80,7 +85,12 @@ public class CalendarMonthActivity extends BaseFragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return CalendarFragment.create(position);
+            return CalendarFragment.create(position, new CalendarFragment.OnDayClickListener() {
+                @Override
+                public void onClick() {
+                    IntentManager.startMPanelViewActivity(mContext);
+                }
+            });
         }
 
         @Override

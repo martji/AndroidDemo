@@ -82,7 +82,8 @@
             android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".activity.CalendarMonthActivity"
             android:label="Calendar Month"/>
-        <activity android:name=".activity.MPanelViewActivity"/>
+        <activity android:name=".activity.MPanelViewActivity"
+            android:label="Calendar Day"/>
 
         <service android:name=".service.MService"/>
 
