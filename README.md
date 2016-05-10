@@ -22,4 +22,6 @@ Contents
 
 ![Calendar Month](screenshots/calendar_month.jpg)
 
+![Calendar Day](screenshots/calendar_day.jpg)
+
 
