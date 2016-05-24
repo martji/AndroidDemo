@@ -2,7 +2,7 @@ package com.example.maguoqing.androiddemo.activity;
 
 import com.example.maguoqing.androiddemo.R;
 import com.example.maguoqing.androiddemo.base.BaseActivity;
-import com.example.maguoqing.androiddemo.view.MPanelView;
+import com.example.maguoqing.androiddemo.view.daypager.MPanelView;
 
 /**
  * Created by Guoqing on 2016/5/10.

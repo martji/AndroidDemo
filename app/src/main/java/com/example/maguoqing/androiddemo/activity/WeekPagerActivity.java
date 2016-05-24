@@ -61,7 +61,9 @@ public class WeekPagerActivity extends ActionBarActivity implements WeekDayViewP
     CalendarDay end = new CalendarDay(2017, 12, 31);
     mWeekViewAdapter.setData(start, end, null);
     mPagerAdapter.setData(start, end);
-    mViewPagerContent.setCurrentPosition(DayUtils.calculateDayPosition(mWeekViewAdapter.getFirstShowDay(), new CalendarDay(2016, 5, 24)));
+    Calendar today = Calendar.getInstance();
+    mViewPagerContent.setCurrentPosition(DayUtils.calculateDayPosition(mWeekViewAdapter.getFirstShowDay(),
+            new CalendarDay(today.get(Calendar.YEAR), today.get(Calendar.MONTH) + 1, today.get(Calendar.DATE))));
   }
 
   @Override public void onDayPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
