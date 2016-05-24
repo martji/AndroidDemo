@@ -57,6 +57,14 @@ public class CalendarDay {
     return calendar.getTimeInMillis();
   }
 
+  public Calendar getCalendar() {
+    if (calendar == null) {
+      calendar = Calendar.getInstance();
+    }
+    calendar.set(year, month, day);
+    return calendar;
+  }
+
   public void set(CalendarDay calendarDay) {
     year = calendarDay.year;
     month = calendarDay.month;

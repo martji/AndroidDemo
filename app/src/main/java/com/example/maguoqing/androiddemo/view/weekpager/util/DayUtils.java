@@ -19,7 +19,7 @@ public class DayUtils {
 
   public static int calculateWeekCount(CalendarDay startDay, CalendarDay endDay) {
     long x = endDay.getTime() - startDay.getTime();
-    int days =(int) x / (1000 * 60 * 60 * 24) + 1;
+    int days =(int) (x / (1000 * 60 * 60 * 24)) + 1;
     Calendar calendar = Calendar.getInstance();
     calendar.setTimeInMillis(startDay.getTime());
     int startDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
@@ -61,12 +61,17 @@ public class DayUtils {
 
   public static int calculateDayPosition(CalendarDay startDay, CalendarDay day) {
     long x = day.getTime() - startDay.getTime();
-    return (int) x / (1000 * 60 * 60 * 24);
+    return (int) (x / (1000 * 60 * 60 * 24));
   }
 
   public static String formatEnglishTime(long times) {
     DateFormat df1 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
     return df1.format(new Date(times));
+  }
+
+  public static String formatEnglishTime(Calendar date) {
+    DateFormat df1 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
+    return df1.format(new Date(date.getTimeInMillis()));
   }
 
   public static int getDaysInMonth(int month, int year) {

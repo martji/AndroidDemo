@@ -6,13 +6,14 @@ import android.widget.TextView;
 
 import com.example.maguoqing.androiddemo.R;
 import com.example.maguoqing.androiddemo.adapter.SimplePagerAdapter;
+import com.example.maguoqing.androiddemo.utils.ChineseCalendarGB;
 import com.example.maguoqing.androiddemo.view.weekpager.adapter.WeekViewAdapter;
 import com.example.maguoqing.androiddemo.view.weekpager.model.CalendarDay;
 import com.example.maguoqing.androiddemo.view.weekpager.util.DayUtils;
 import com.example.maguoqing.androiddemo.view.weekpager.view.WeekDayViewPager;
 import com.example.maguoqing.androiddemo.view.weekpager.view.WeekRecyclerView;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -44,7 +45,6 @@ public class WeekPagerActivity extends ActionBarActivity implements WeekDayViewP
     setUpData();
   }
 
-
   private void setUpPager() {
     mPagerAdapter = new SimplePagerAdapter(getSupportFragmentManager());
     mViewPagerContent.setOffscreenPageLimit(OFFSCREEN_PAGE_LIMIT);
@@ -57,26 +57,20 @@ public class WeekPagerActivity extends ActionBarActivity implements WeekDayViewP
   }
 
   private void setUpData() {
-    ArrayList<CalendarDay> reachAbleDays = new ArrayList<>();
-    reachAbleDays.add(new CalendarDay(2015, 5, 1));
-    reachAbleDays.add(new CalendarDay(2015, 5, 4));
-    reachAbleDays.add(new CalendarDay(2015, 5, 6));
-    reachAbleDays.add(new CalendarDay(2015, 5, 20));
-    mWeekViewAdapter.setData(reachAbleDays.get(0), reachAbleDays.get(reachAbleDays.size() - 1), null);
-    mPagerAdapter.setData(reachAbleDays.get(0), reachAbleDays.get(reachAbleDays.size() - 1));
-    mViewPagerContent.setCurrentPosition(DayUtils.calculateDayPosition(mWeekViewAdapter.getFirstShowDay(), new CalendarDay(2015, 5, 6)));
+    CalendarDay start = new CalendarDay(2016, 5, 1);
+    CalendarDay end = new CalendarDay(2017, 12, 31);
+    mWeekViewAdapter.setData(start, end, null);
+    mPagerAdapter.setData(start, end);
+    mViewPagerContent.setCurrentPosition(DayUtils.calculateDayPosition(mWeekViewAdapter.getFirstShowDay(), new CalendarDay(2016, 5, 24)));
   }
 
-  @Override public void onDayPageScrolled(int position, float positionOffset,
-      int positionOffsetPixels) {
-    mTextView.setText(DayUtils.formatEnglishTime(mPagerAdapter.getDatas().get(position).getTime()));
+  @Override public void onDayPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    Calendar date = mPagerAdapter.getDatas().get(position).getCalendar();
+    mTextView.setText(DayUtils.formatEnglishTime(date) + " " + ChineseCalendarGB.getChineseDay(date));
   }
 
-  @Override public void onDayPageSelected(int position) {
-  }
+  @Override public void onDayPageSelected(int position) {}
 
-  @Override public void onDayPageScrollStateChanged(int state) {
-
-  }
+  @Override public void onDayPageScrollStateChanged(int state) {}
 
 }

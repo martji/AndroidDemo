@@ -9,7 +9,7 @@ import java.util.Calendar;
  * 中国农历算法 - 实用于公历 1901 年至 2100 年之间的 200 年
  */
 
-class ChineseCalendarGB {
+public class ChineseCalendarGB {
     private int gregorianYear;
     private int gregorianMonth;
     private int gregorianDate;
