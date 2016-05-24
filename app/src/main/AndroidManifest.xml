@@ -84,6 +84,7 @@
             android:label="Calendar Month"/>
         <activity android:name=".activity.MPanelViewActivity"
             android:label="Calendar Day"/>
+        <activity android:name=".activity.WeekPagerActivity"/>
 
         <service android:name=".service.MService"/>
 

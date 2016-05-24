@@ -41,4 +41,6 @@ dependencies {
     compile 'com.github.satyan:sugar:1.4'
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.mcxiaoke.volley:library:1.0.19'
+
+    compile 'com.jakewharton:butterknife:6.1.0'
 }

@@ -155,4 +155,8 @@
     <dimen name="record_lesson_padding_lr">14dp</dimen>
     <dimen name="record_lesson_item_height">56dp</dimen>
     <dimen name="record_header_height">64dp</dimen>
+
+    <dimen name="si_default_text_size">14sp</dimen>
+    <dimen name="si_default_radius_max">18dp</dimen>
+    <dimen name="si_default_radius_min">8dp</dimen>
 </resources>

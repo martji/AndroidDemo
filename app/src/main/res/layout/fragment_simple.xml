@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:visibility="gone"/>
+
+    <com.example.maguoqing.androiddemo.view.MPanelView
+        android:id="@+id/pv_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:line_color="#BDBDBD"
+        app:line_height="120"/>
+
+</LinearLayout>

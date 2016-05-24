@@ -21,6 +21,7 @@ import com.example.maguoqing.androiddemo.activity.TabHostActivity;
 import com.example.maguoqing.androiddemo.activity.ViewDragerActivity;
 import com.example.maguoqing.androiddemo.activity.ViewTouchActivity;
 import com.example.maguoqing.androiddemo.activity.VolleyActivity;
+import com.example.maguoqing.androiddemo.activity.WeekPagerActivity;
 
 /**
  * Created by Guoqing on 2015/12/18.
@@ -135,6 +136,12 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startWeekPagerActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, WeekPagerActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startActivity(int i, Context context) {
         switch (i) {
             case 0:
@@ -190,6 +197,9 @@ public class IntentManager {
                 break;
             case 17:
                 startMPanelViewActivity(context);
+                break;
+            case 18:
+                startWeekPagerActivity(context);
                 break;
             default:
                 break;
