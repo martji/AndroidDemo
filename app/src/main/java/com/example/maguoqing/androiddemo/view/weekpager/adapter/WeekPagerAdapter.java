@@ -42,7 +42,7 @@ public abstract class WeekPagerAdapter extends FragmentPagerAdapter {
     calendar.setTimeInMillis(DayUtils.calculateFirstShowDay(mStartDay).getTime());
     for (int i = 0; i < mCount; i++) {
       mDays.add(new CalendarDay(calendar));
-      calendar.roll(Calendar.DAY_OF_YEAR, 1);
+      calendar.add(Calendar.DAY_OF_YEAR, 1);
     }
   }
 

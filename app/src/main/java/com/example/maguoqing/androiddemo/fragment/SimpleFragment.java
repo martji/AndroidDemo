@@ -1,5 +1,6 @@
 package com.example.maguoqing.androiddemo.fragment;
 
+import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,8 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.maguoqing.androiddemo.R;
+import com.example.maguoqing.androiddemo.view.daypager.MPanelView;
+import com.example.maguoqing.androiddemo.view.daypager.ViewEvent;
 import com.example.maguoqing.androiddemo.view.weekpager.model.CalendarDay;
 import com.example.maguoqing.androiddemo.view.weekpager.util.DayUtils;
 
@@ -21,6 +25,8 @@ import butterknife.InjectView;
 public class SimpleFragment extends Fragment {
 
   @InjectView(R.id.text) TextView mText;
+  @InjectView(R.id.pv_test)
+  MPanelView mPanelView;
 
   private CalendarDay mCalendarDay;
 
@@ -39,5 +45,12 @@ public class SimpleFragment extends Fragment {
     super.onViewCreated(view, savedInstanceState);
     ButterKnife.inject(this, view);
     mText.setText("This is at: " + DayUtils.formatEnglishTime(mCalendarDay.getTime()));
+
+    mPanelView.setmEventClickListener(new MPanelView.EventClickListener() {
+      @Override
+      public void onEventClick(ViewEvent event, RectF eventRect) {
+        Toast.makeText(getContext(), "ha", Toast.LENGTH_SHORT).show();
+      }
+    });
   }
 }

@@ -57,7 +57,7 @@ public class WeekPagerActivity extends ActionBarActivity implements WeekDayViewP
   }
 
   private void setUpData() {
-    CalendarDay start = new CalendarDay(2016, 5, 1);
+    CalendarDay start = new CalendarDay(2016, 1, 1);
     CalendarDay end = new CalendarDay(2017, 12, 31);
     mWeekViewAdapter.setData(start, end, null);
     mPagerAdapter.setData(start, end);

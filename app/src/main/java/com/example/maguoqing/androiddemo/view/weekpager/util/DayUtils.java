@@ -55,13 +55,15 @@ public class DayUtils {
     int day = startDay.calendar.get(Calendar.DAY_OF_WEEK);
     Calendar calendar = Calendar.getInstance();
     calendar.setTimeInMillis(startDay.getTime());
-    calendar.roll(Calendar.DAY_OF_YEAR, -day + 1);
-    return new CalendarDay(calendar);
+    calendar.add(Calendar.DAY_OF_YEAR, -day + 1);
+    CalendarDay out = new CalendarDay(calendar);
+    return out;
   }
 
   public static int calculateDayPosition(CalendarDay startDay, CalendarDay day) {
     long x = day.getTime() - startDay.getTime();
-    return (int) (x / (1000 * 60 * 60 * 24));
+    int out = (int) (x / (1000 * 60 * 60 * 24));
+    return out;
   }
 
   public static String formatEnglishTime(long times) {

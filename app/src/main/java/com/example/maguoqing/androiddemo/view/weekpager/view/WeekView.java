@@ -247,10 +247,10 @@ public class WeekView extends View {
     mWeekCalendarDays.clear();
     Calendar calendar = Calendar.getInstance();
     calendar.setTimeInMillis(mFirstShowDay.getTime());
-    calendar.roll(Calendar.DAY_OF_YEAR, mWeekPostion * DAY_IN_WEEK);
+    calendar.add(Calendar.DAY_OF_YEAR, mWeekPostion * DAY_IN_WEEK);
     for (int i = 0; i < DAY_IN_WEEK; i++) {
       mWeekCalendarDays.add(new CalendarDay(calendar));
-      calendar.roll(Calendar.DAY_OF_YEAR, 1);
+      calendar.add(Calendar.DAY_OF_YEAR, 1);
     }
   }
 

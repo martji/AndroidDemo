@@ -25,6 +25,7 @@ public class WeekDayViewPager extends ViewPager implements WeekView.OnDayClickLi
   }
 
   private RecyclerView mRecyclerView;
+  private boolean isSmoothScroll = false;
   private DayScrollListener mDayScrollListener;
 
   public WeekDayViewPager(Context context) {
@@ -65,7 +66,12 @@ public class WeekDayViewPager extends ViewPager implements WeekView.OnDayClickLi
 
       @Override public void onPageSelected(int position) {
         onDayPageSelected(position);
-        mRecyclerView.smoothScrollToPosition(position / 7);
+        if (isSmoothScroll) {
+          mRecyclerView.smoothScrollToPosition(position / 7);
+        } else {
+          mRecyclerView.scrollToPosition(position / 7);
+          isSmoothScroll = true;
+        }
         for (int j = 0; j < mRecyclerView.getChildCount(); j++) {
           View week = mRecyclerView.getChildAt(j);
           if (week instanceof WeekView) {

@@ -33,15 +33,23 @@ public class WeekRecyclerView extends RecyclerView {
     setLayoutManager(manager);
 
     setOnScrollListener(new OnScrollListener() {
-      @Override public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+      @Override
+      public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
         super.onScrollStateChanged(recyclerView, newState);
         adjustPosition(recyclerView, newState);
       }
 
-      @Override public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+      @Override
+      public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
       }
     });
+  }
+
+  @Override
+  public boolean fling(int velocityX, int velocityY) {
+    velocityX *= 0.1;
+    return super.fling(velocityX, velocityY);
   }
 
   private void adjustPosition(RecyclerView recyclerView, int newState) {
@@ -57,10 +65,11 @@ public class WeekRecyclerView extends RecyclerView {
       }
       final int left = child.getLeft();
       final int right = child.getRight();
-      final int midpoint = recyclerView.getWidth() / 2;
+      final int midpoint = recyclerView.getWidth() / 3;
+      int len = (Math.abs(left) > right ? left : right);
       if (left < LIST_LEFT_OFFSET) {
         if (right > midpoint) {
-          recyclerView.smoothScrollBy(left, 0);
+          recyclerView.smoothScrollBy(len, 0);
         } else {
           recyclerView.smoothScrollBy(right, 0);
         }

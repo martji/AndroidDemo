@@ -17,9 +17,11 @@ import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.widget.Scroller;
+import android.widget.Toast;
 
 import com.example.maguoqing.androiddemo.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
@@ -102,6 +104,7 @@ public class MPanelView extends View {
 
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
+            Log.d(TAG, "onSingleTapConfirmed");
             // If the tap was on an event then trigger the callback.
             if (mEventRects != null && mEventClickListener != null) {
                 List<EventRect> reversedEventRects = mEventRects;
@@ -212,6 +215,12 @@ public class MPanelView extends View {
         courseTextPaint.setStrokeWidth(3);
         courseTextPaint.setTextSize(38);
         courseTextPaint.setColor(getResources().getColor(R.color.course_bg_dark));
+
+        // test
+        mEventRects = new ArrayList<>();
+        RectF rectf = new RectF(100, 400, 1000, 600);
+        EventRect event = new EventRect(null, null, rectf);
+        mEventRects.add(event);
     }
 
     public void setmDate(Calendar date) {
@@ -251,15 +260,6 @@ public class MPanelView extends View {
     }
 
     public void drawEvents(Canvas canvas) {
-//        canvas.drawRect(new Rect(110, mPaddingTop + 400, 120, mPaddingTop + 600), courseDarkPaint);
-//        Rect courseRect = new Rect(120, mPaddingTop + 400, getWidth(), mPaddingTop + 600);
-//        canvas.drawRect(courseRect, coursePaint);
-//        canvas.drawText("新建事件", courseRect.left + 10, courseRect.top + 40, courseTextPaint);
-
-        RectF rectf = new RectF(0, 400, 0, 600);
-        EventRect event = new EventRect(null, null, rectf);
-        drawSingleEvent(canvas, event);
-
         if (mEventRects != null) {
             for (EventRect eventRect : mEventRects) {
                 drawSingleEvent(canvas, eventRect);

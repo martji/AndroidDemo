@@ -10,12 +10,6 @@
         style="@style/toolbar"
         android:theme="?attr/actionBarTheme" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="Hello world"/>
-
     <com.example.maguoqing.androiddemo.view.daypager.MPanelView
         android:id="@+id/pv_test"
         android:layout_width="match_parent"
