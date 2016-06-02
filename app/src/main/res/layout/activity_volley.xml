@@ -3,19 +3,26 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:layout_marginTop="10dp"
-        android:id="@+id/et_address"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="address"/>
-
     <Button
         android:id="@+id/btn_load"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:text="load"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:text="login"/>
+
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:text="upload"/>
 
     <WebView
         android:id="@+id/tv_content"
