@@ -3,18 +3,24 @@ package com.example.maguoqing.androiddemo.activity;
 
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.maguoqing.androiddemo.R;
 import com.example.maguoqing.androiddemo.base.BaseActivity;
+import com.example.maguoqing.androiddemo.wight.okhttp.OkHttp3Stack;
+import com.example.maguoqing.androiddemo.wight.okhttp.PersistentCookieStore;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -23,6 +29,7 @@ import okhttp3.CookieJar;
 import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
+import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -45,7 +52,7 @@ public class VolleyActivity extends BaseActivity {
     private Button btnUpload;
 
     @ViewId(R.id.tv_content)
-    private WebView tvContent;
+    private TextView tvContent;
 
     private RequestQueue requestQueue;
 
@@ -53,8 +60,11 @@ public class VolleyActivity extends BaseActivity {
 
     private String url = "http://101.201.113.136:8080/api/account";
 
+    private PersistentCookieStore cookieStore;
     private List<Cookie> cookieList = new ArrayList<>();
     private String token = "token";
+
+    private boolean isLogin = false;
 
     @Override
     protected void setListeners() {
@@ -71,20 +81,28 @@ public class VolleyActivity extends BaseActivity {
 
         switch (v.getId()) {
             case R.id.btn_load:
-//                StringRequest stringRequest = new StringRequest(etAddress.getText().toString(),
-//                        new Response.Listener<String>() {
-//                            @Override
-//                            public void onResponse(String response) {
-//                                tvContent.loadData(response, "text/html", "UTF-8");
-//                            }
-//                        },
-//                        new Response.ErrorListener() {
-//                            @Override
-//                            public void onErrorResponse(VolleyError error) {
-//
-//                            }
-//                        });
-//                requestQueue.add(stringRequest);
+                StringRequest stringRequest = new StringRequest(url,
+                        new com.android.volley.Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                tvContent.setText(response);
+                            }
+                        },
+                        new com.android.volley.Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        }){
+                    @Override
+                    public Map<String, String> getHeaders() {
+                        HashMap<String, String> headers = new HashMap<>();
+                        headers.put("X-CSRF-TOKEN", token);
+                        headers.put("Content-Type", "application/json");
+                        return headers;
+                    }
+                };
+                requestQueue.add(stringRequest);
 
                 Request request = new Request.Builder()
                         .url(url)
@@ -99,15 +117,18 @@ public class VolleyActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(Call call, okhttp3.Response response) throws IOException {
-                        Log.d(TAG, response.code() + response.body().string());
+                        Log.d(TAG, "init: " + response.code() + response.body().string());
                     }
                 });
                 break;
             case R.id.btn_login:
+                if (isLogin) {
+                    return;
+                }
                 FormBody body = new FormBody.Builder()
                         .add("j_username", "admin")
                         .add("j_password", "admin")
-                        .add("remember", "true")
+                        .add("remember-me", "true")
                         .add("submit", "Login")
                         .build();
                 Request request0 = new Request.Builder()
@@ -124,7 +145,10 @@ public class VolleyActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
-                        Log.d(TAG, response.code() + response.body().string());
+                        Log.d(TAG, "login: " + response.code() + response.body().string());
+                        if (response.code() == 200) {
+                            isLogin = true;
+                        }
                     }
                 });
                 break;
@@ -132,8 +156,7 @@ public class VolleyActivity extends BaseActivity {
                 File file = new File("sdcard/DCIM/test.jpg");
                 RequestBody requestBody = new MultipartBody.Builder()
                         .setType(MultipartBody.FORM)
-                        .addFormDataPart("hello", "android")
-                        .addFormDataPart("photo", file.getName(), RequestBody.create(null, file))
+                        .addFormDataPart("file", file.getName(), RequestBody.create(null, file))
                         .addPart(Headers.of("Content-Disposition", "form-data; name=\"another\";filename=\"another.dex\""),
                                 RequestBody.create(MediaType.parse("application/octet-stream"), file))
                         .build();
@@ -152,7 +175,7 @@ public class VolleyActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
-                        Log.d(TAG, response.code() + response.body().string());
+                        Log.d(TAG, "upload: " + response.code() + response.body().string());
                     }
                 });
 
@@ -167,7 +190,7 @@ public class VolleyActivity extends BaseActivity {
 
     @Override
     protected void initControls() {
-        requestQueue = Volley.newRequestQueue(this);
+        cookieStore = new PersistentCookieStore(getApplicationContext());
 
         client = new OkHttpClient.Builder()
                 .cookieJar(new CookieJar() {
@@ -178,21 +201,37 @@ public class VolleyActivity extends BaseActivity {
                                 if (cookie.name().contains("TOKEN")) {
                                     if (!token.equals(cookie.value())) {
                                         token = cookie.value();
-                                        Log.d(TAG, token);
+                                        Log.d(TAG, "update token: " + token);
                                     }
                                     break;
                                 }
                             }
                         }
-                        cookieList = cookies;
+                        if (!isLogin) {
+                            cookieList = cookies;
+                            for (Cookie item : cookies) {
+                                cookieStore.add(url, item);
+                            }
+                        }
                     }
 
                     @Override
                     public List<Cookie> loadForRequest(HttpUrl url) {
+                        cookieList = cookieStore.get(url);
                         return cookieList;
                     }
                 })
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request request = chain.request();
+                        Response response = chain.proceed(request);
+                        return response;
+                    }
+                })
                 .build();
+
+        requestQueue = Volley.newRequestQueue(this, new OkHttp3Stack(client));
     }
 
     @Override
