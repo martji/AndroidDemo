@@ -22,6 +22,7 @@
     <string name="account">账户</string>
 
     <string name="action_github">Github</string>
+    <string name="action_filter">筛选</string>
     <string name="start_activity">Start new activity!</string>
     <string name="finish_activity">Finish Activity</string>
 

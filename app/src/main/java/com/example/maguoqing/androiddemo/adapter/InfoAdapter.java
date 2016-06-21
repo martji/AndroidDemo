@@ -1,6 +1,7 @@
 package com.example.maguoqing.androiddemo.adapter;
 
 import android.support.v4.widget.ContentLoadingProgressBar;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +22,23 @@ public class InfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public final static int LOADING = 1;
 
     private boolean showProgressbar = true;
-
-    ArrayList<Lesson> data;
+    private ArrayList<Lesson> data;
+    private OnItemClick listener = null;
 
     public InfoAdapter() {
+        data = new ArrayList<>();
+        addData();
+    }
+
+    public InfoAdapter(OnItemClick listener) {
+        this.listener = listener;
+        data = new ArrayList<>();
+        addData();
+    }
+
+    public InfoAdapter(boolean showProgressbar, OnItemClick listener) {
+        this.showProgressbar = showProgressbar;
+        this.listener = listener;
         data = new ArrayList<>();
         addData();
     }
@@ -58,11 +72,19 @@ public class InfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         if (holder.getItemViewType() == NORMAL) {
             InfoHolder infoHolder = (InfoHolder) holder;
             infoHolder.tvLesson.setText(data.get(position).getLessonTitle());
             infoHolder.tvTeacher.setText(data.get(position).getTeacherName());
+            infoHolder.cv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) {
+                        listener.click(position);
+                    }
+                }
+            });
         } else if (holder.getItemViewType() == LOADING) {
             ProgressHolder progressHolder = (ProgressHolder) holder;
             progressHolder.progressBar.show();
@@ -85,11 +107,13 @@ public class InfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public class InfoHolder extends RecyclerView.ViewHolder{
 
+        CardView cv;
         TextView tvLesson;
         TextView tvTeacher;
 
         public InfoHolder(View itemView) {
             super(itemView);
+            cv = (CardView) itemView.findViewById(R.id.cv);
             tvLesson = (TextView) itemView.findViewById(R.id.tv_lesson);
             tvTeacher = (TextView) itemView.findViewById(R.id.tv_teacher);
         }
@@ -103,5 +127,9 @@ public class InfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             super(itemView);
             progressBar = (ContentLoadingProgressBar) itemView.findViewById(R.id.progress_bar);
         }
+    }
+
+    public interface OnItemClick {
+        void click(int index);
     }
 }

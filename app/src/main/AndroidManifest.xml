@@ -85,7 +85,8 @@
         <activity android:name=".activity.MPanelViewActivity"
             android:label="Calendar Day"/>
         <activity android:name=".activity.WeekPagerActivity"/>
-        <activity android:name=".activity.DataBindingActivity"/>
+        <activity android:name=".activity.DataBindingActivity"
+            android:label="Data Binding"/>
 
         <service android:name=".service.MService"/>
 
