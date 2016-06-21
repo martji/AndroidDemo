@@ -3,6 +3,7 @@ package com.example.maguoqing.androiddemo.control;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.maguoqing.androiddemo.activity.DataBindingActivity;
 import com.example.maguoqing.androiddemo.activity.MPanelViewActivity;
 import com.example.maguoqing.androiddemo.activity.AnimationActivity;
 import com.example.maguoqing.androiddemo.activity.AppBarDetailActivity;
@@ -142,6 +143,12 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startDataBindingActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, DataBindingActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startActivity(int i, Context context) {
         switch (i) {
             case 0:
@@ -200,6 +207,9 @@ public class IntentManager {
                 break;
             case 18:
                 startWeekPagerActivity(context);
+                break;
+            case 19:
+                startDataBindingActivity(context);
                 break;
             default:
                 break;

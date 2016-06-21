@@ -76,6 +76,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         list.add("CalendarMonthActivity");
         list.add("MPanelActivity");
         list.add("WeekPagerActivity");
+        list.add("DataBindingActivity");
 
         MAdapter adapter = new MAdapter(mContext, list);
         listView.setAdapter(adapter);
