@@ -6,12 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorPrimaryTransparent</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="AppTheme.NoActionBar.Ripple">
         <item name="colorControlHighlight">@color/colorPrimary</item>
     </style>
@@ -72,7 +74,7 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <!-- ripple effect -->
+    <!-- textView ripple effect -->
     <style name="SelectableItemBackgroundWhite">
         <item name="android:theme">@style/SelectableItemThemeWhite</item>
         <item name="android:background">?attr/selectableItemBackground</item>
