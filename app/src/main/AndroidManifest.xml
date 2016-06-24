@@ -87,6 +87,8 @@
         <activity android:name=".activity.WeekPagerActivity"/>
         <activity android:name=".activity.DataBindingActivity"
             android:label="Data Binding"/>
+        <activity android:name=".activity.LoginActivity"
+            android:label="Login"/>
 
         <service android:name=".service.MService"/>
 

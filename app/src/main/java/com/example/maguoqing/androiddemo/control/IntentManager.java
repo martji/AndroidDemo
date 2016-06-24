@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.maguoqing.androiddemo.activity.DataBindingActivity;
+import com.example.maguoqing.androiddemo.activity.LoginActivity;
 import com.example.maguoqing.androiddemo.activity.MPanelViewActivity;
 import com.example.maguoqing.androiddemo.activity.AnimationActivity;
 import com.example.maguoqing.androiddemo.activity.AppBarDetailActivity;
@@ -143,6 +144,12 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startLoginActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, LoginActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startDataBindingActivity(Context context) {
         Intent intent = new Intent();
         intent.setClass(context, DataBindingActivity.class);
@@ -209,7 +216,7 @@ public class IntentManager {
                 startWeekPagerActivity(context);
                 break;
             case 19:
-                startDataBindingActivity(context);
+                startLoginActivity(context);
                 break;
             default:
                 break;
