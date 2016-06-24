@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    
+    <com.example.maguoqing.androiddemo.view.LVCircularRing
+        android:id="@+id/lv_ring"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:ring_color="@color/colorAccent"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        style="?android:attr/android:progressBarStyle"/>
+
+</LinearLayout>

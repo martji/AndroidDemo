@@ -64,4 +64,24 @@
         <item name="android:textSize">22sp</item>
     </style>
 
+    <style name="DialogLoadingTheme" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- ripple effect -->
+    <style name="SelectableItemBackgroundWhite">
+        <item name="android:theme">@style/SelectableItemThemeWhite</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="SelectableItemThemeWhite">
+        <item name="selectableItemBackground">@drawable/my_ripple_white</item>
+        <item name="android:selectableItemBackground">@drawable/my_ripple_white</item>
+        <item name="selectableItemBackgroundBorderless">@drawable/my_ripple_white</item>
+    </style>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.example.maguoqing.androiddemo.activity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 import com.example.maguoqing.androiddemo.R;
 import com.example.maguoqing.androiddemo.adapter.InfoAdapter;
 import com.example.maguoqing.androiddemo.databinding.ActivityDataBinding;
+import com.example.maguoqing.androiddemo.utils.CustomDialogFragment;
+import com.example.maguoqing.androiddemo.utils.ViewUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -87,7 +90,15 @@ public class DataBindingActivity extends AppCompatActivity {
         adapter = new InfoAdapter(new InfoAdapter.OnItemClick() {
             @Override
             public void click(int index) {
-                showDialog();
+                if (index % 3 == 0) {
+                    showDialog();
+                } else if (index % 3 == 1) {
+                    Dialog dialog = ViewUtils.createLoadingDialog(mContext);
+                    dialog.show();
+                } else {
+                    CustomDialogFragment dialog = CustomDialogFragment.newInstance("Demo");
+                    dialog.show(getFragmentManager(), "");
+                }
             }
         });
         recyclerView.setAdapter(adapter);
