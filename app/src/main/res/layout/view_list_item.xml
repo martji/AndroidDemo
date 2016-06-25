@@ -1,12 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/tv_aty_name"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="@drawable/my_ripple_white"
+        style="@style/SelectableItemBackgroundWhite"
         android:textSize="18sp"
         android:gravity="center"
         android:text="1" />

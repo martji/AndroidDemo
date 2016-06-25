@@ -11,18 +11,19 @@
         android:theme="?attr/actionBarTheme" />
 
     <android.support.v4.widget.SwipeRefreshLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/swipe_container"
         android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-    <ListView
-        android:id="@+id/id_listview"
-        android:divider="@color/colorPrimaryTransparent"
-        android:dividerHeight="1dp"
-        android:layout_below="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
+        <ListView
+            android:id="@+id/lv_list"
+            android:divider="@color/colorPrimaryTransparent"
+            android:dividerHeight="1dp"
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
     </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>
 

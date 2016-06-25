@@ -1,10 +1,8 @@
 package com.example.maguoqing.androiddemo.activity;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +19,9 @@ import com.example.maguoqing.androiddemo.control.IntentManager;
 import java.util.ArrayList;
 
 
-public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener,
-        SwipeRefreshLayout.OnRefreshListener{
+public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
 
-    @ViewId(R.id.id_listview)
+    @ViewId(R.id.lv_list)
     private ListView listView;
 
     private SwipeRefreshLayout mSwipeLayout;
@@ -51,8 +48,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
         mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         mSwipeLayout.setOnRefreshListener(this);
-        mSwipeLayout.setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
-                android.R.color.holo_orange_light, android.R.color.holo_red_light);
+        mSwipeLayout.setColorSchemeResources(R.color.colorPrimaryTransparent, R.color.colorPrimary,
+                R.color.colorAccent, R.color.colorPrimaryDark);
         mSwipeLayout.setDistanceToTriggerSync(300);
         mSwipeLayout.setSize(SwipeRefreshLayout.LARGE);
 
@@ -80,16 +77,16 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
         MAdapter adapter = new MAdapter(mContext, list);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(this);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                IntentManager.startActivity(i, mContext);
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        IntentManager.startActivity(i, mContext);
     }
 
     @Override
@@ -144,7 +141,6 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
                 holder = (ViewHolder) view.getTag();
             }
             holder.textView.setText(data.get(i));
-            holder.textView.setBackgroundColor(Color.WHITE);
             return view;
         }
     }
