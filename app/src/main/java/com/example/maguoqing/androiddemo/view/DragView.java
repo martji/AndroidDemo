@@ -43,6 +43,13 @@ public class DragView extends LinearLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+//        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+//        int sizeWidth = MeasureSpec.getSize(widthMeasureSpec);
+//        int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
+//
+//        setMeasuredDimension(sizeWidth, (heightMode == MeasureSpec.EXACTLY) ? sizeHeight : 2000);
+
         Log.d(TAG, "onMeasure ");
     }
 
