@@ -2,7 +2,9 @@ package com.example.maguoqing.androiddemo.control;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.ActivityOptionsCompat;
 
+import com.example.maguoqing.androiddemo.R;
 import com.example.maguoqing.androiddemo.activity.DataBindingActivity;
 import com.example.maguoqing.androiddemo.activity.LoginActivity;
 import com.example.maguoqing.androiddemo.activity.MPanelViewActivity;
@@ -14,6 +16,7 @@ import com.example.maguoqing.androiddemo.activity.IJKPlayerActivity;
 import com.example.maguoqing.androiddemo.activity.ListActivity;
 import com.example.maguoqing.androiddemo.activity.NotificationActivity;
 import com.example.maguoqing.androiddemo.activity.PinnedSectionListActivity;
+import com.example.maguoqing.androiddemo.activity.RXActivity;
 import com.example.maguoqing.androiddemo.activity.ScrollviewActivity;
 import com.example.maguoqing.androiddemo.activity.ServiceActivity;
 import com.example.maguoqing.androiddemo.activity.StickyActivity;
@@ -156,6 +159,12 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startRXJavaActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, RXActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startActivity(int i, Context context) {
         switch (i) {
             case 0:
@@ -217,6 +226,9 @@ public class IntentManager {
                 break;
             case 19:
                 startLoginActivity(context);
+                break;
+            case 20:
+                startRXJavaActivity(context);
                 break;
             default:
                 break;

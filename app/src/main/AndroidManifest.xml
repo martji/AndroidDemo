@@ -89,6 +89,8 @@
             android:label="Data Binding"/>
         <activity android:name=".activity.LoginActivity"
             android:label="Login"/>
+        <activity android:name=".activity.RXActivity"
+            android:label="RXJava" />
 
         <service android:name=".service.MService"/>
 

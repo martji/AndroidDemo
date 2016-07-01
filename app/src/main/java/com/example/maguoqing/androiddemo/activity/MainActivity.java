@@ -48,8 +48,8 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
 
         mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         mSwipeLayout.setOnRefreshListener(this);
-        mSwipeLayout.setColorSchemeResources(R.color.colorPrimaryTransparent, R.color.colorPrimary,
-                R.color.colorAccent, R.color.colorPrimaryDark);
+        mSwipeLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryDark,
+                R.color.colorAccent, R.color.colorPrimaryTransparent);
         mSwipeLayout.setDistanceToTriggerSync(300);
         mSwipeLayout.setSize(SwipeRefreshLayout.LARGE);
 
@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
         list.add("StickyActivity");
         list.add("SwipeBackDemoActivity");
         list.add("AppBarDetailActivity");
-        list.add("ViewDragerActivity");
+        list.add("ViewDragHelperActivity");
         list.add("ServiceActivity");
         list.add("NotificationActivity");
         list.add("AnimationActivity");
@@ -74,6 +74,7 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
         list.add("MPanelActivity");
         list.add("WeekPagerActivity");
         list.add("LoginActivity");
+        list.add("RXJavaActivity");
 
         MAdapter adapter = new MAdapter(mContext, list);
         listView.setAdapter(adapter);
