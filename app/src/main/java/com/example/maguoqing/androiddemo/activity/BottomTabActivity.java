@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,22 +33,10 @@ public class BottomTabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_tab);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.hello_world);
-        setSupportActionBar(toolbar);
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//        });
-
         viewPager = (CustomViewPager)findViewById(R.id.viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
-        final SampleFragmentPagerAdapter pagerAdapter =
+        SampleFragmentPagerAdapter pagerAdapter =
                 new SampleFragmentPagerAdapter(getSupportFragmentManager(), this);
         viewPager.setAdapter(pagerAdapter);
 
@@ -74,6 +61,7 @@ public class BottomTabActivity extends AppCompatActivity {
 
             }
         });
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
@@ -93,11 +81,6 @@ public class BottomTabActivity extends AppCompatActivity {
         private int imageResId[] = new int[]{R.drawable.home_white, R.drawable.explore_white, R.drawable.account_white};
 
         public View getTabView(int position) {
-//            View v = LayoutInflater.from(context).inflate(R.layout.view_custom_tab, null);
-//            TextView tv = (TextView) v.findViewById(R.id.textView);
-//            tv.setText(tabTitles[position]);
-//            ImageView img = (ImageView) v.findViewById(R.id.imageView);
-//            img.setImageResource(imageResId[position]);
             View v = new TabItemView(context, tabTitles[position], imageResId[position]);
             return v;
         }
