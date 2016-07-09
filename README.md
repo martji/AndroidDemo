@@ -20,6 +20,8 @@ Contents
 14. Sugar orm (简单使用)
 15. Calendar Month(支持备忘的日历月视图)
 
+![Login](screenshots/login.gif)
+
 ![Calendar Month](screenshots/calendar_month.jpg)
 
 ![Calendar Day](screenshots/calendar_day.jpg)
