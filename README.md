@@ -22,6 +22,7 @@ Contents
 
 
 <img src="./screenshots/calendar_month.jpg" width = "180" height = "300" alt="Calendar Month" />
-<img src="./screenshots/calendar_day.jpg" width = "180" height = "300" alt="Calendar Month" />
+<img src="./screenshots/calendar_day.jpg" width = "180" height = "300" alt="Calendar Day" />
+<img src="./screenshots/login.gif" width = "180" height = "300" alt="Login" />
 
 
