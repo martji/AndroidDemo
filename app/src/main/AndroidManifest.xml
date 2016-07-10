@@ -91,6 +91,8 @@
             android:label="Login"/>
         <activity android:name=".activity.RXActivity"
             android:label="RXJava" />
+        <activity android:name=".activity.ViewPagerActivity"
+            android:label="ViewPager" />
 
         <service android:name=".service.MService"/>
 

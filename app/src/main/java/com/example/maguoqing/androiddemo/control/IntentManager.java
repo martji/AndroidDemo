@@ -24,6 +24,7 @@ import com.example.maguoqing.androiddemo.activity.SugarActivity;
 import com.example.maguoqing.androiddemo.activity.SwipeBackDemoActivity;
 import com.example.maguoqing.androiddemo.activity.TabHostActivity;
 import com.example.maguoqing.androiddemo.activity.ViewDragerActivity;
+import com.example.maguoqing.androiddemo.activity.ViewPagerActivity;
 import com.example.maguoqing.androiddemo.activity.ViewTouchActivity;
 import com.example.maguoqing.androiddemo.activity.VolleyActivity;
 import com.example.maguoqing.androiddemo.activity.WeekPagerActivity;
@@ -165,6 +166,12 @@ public class IntentManager {
         context.startActivity(intent);
     }
 
+    public static void startViewPagerActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, ViewPagerActivity.class);
+        context.startActivity(intent);
+    }
+
     public static void startActivity(int i, Context context) {
         switch (i) {
             case 0:
@@ -229,6 +236,9 @@ public class IntentManager {
                 break;
             case 20:
                 startRXJavaActivity(context);
+                break;
+            case 21:
+                startViewPagerActivity(context);
                 break;
             default:
                 break;

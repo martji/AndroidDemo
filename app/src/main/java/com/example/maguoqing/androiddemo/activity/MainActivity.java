@@ -75,6 +75,7 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
         list.add("WeekPagerActivity");
         list.add("LoginActivity");
         list.add("RXJavaActivity");
+        list.add("ViewPager");
 
         MAdapter adapter = new MAdapter(mContext, list);
         listView.setAdapter(adapter);

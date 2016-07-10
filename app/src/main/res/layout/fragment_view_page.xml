@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_page"
+        android:layout_above="@+id/ll_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_input"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/Grey_200"
+        android:paddingLeft="4dp"
+        android:paddingRight="6dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/ts_16"
+            android:hint="输入"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:text="send"/>
+    </LinearLayout>
+
+</RelativeLayout>
