@@ -19,10 +19,13 @@ Contents
 13. AudioPlayerView (自定义的音频播放组件,利用自导MediaPlayer)
 14. Sugar orm (简单使用)
 15. Calendar Month(支持备忘的日历月视图)
+16. IJKPlayer (B站开源播放器)
+17. MD (MD组件)
 
 
 <img src="./screenshots/calendar_month.jpg" width = "180" height = "300" alt="Calendar Month" />
 <img src="./screenshots/calendar_day.jpg" width = "180" height = "300" alt="Calendar Day" />
-<img src="./screenshots/login.gif" width = "180" height = "300" alt="Login" />
+<img src="http://7xw7bj.com1.z0.glb.clouddn.com/origin.gif" width = "180" height = "300" alt="Login" />
+<img src="http://7xw7bj.com1.z0.glb.clouddn.com/viewpager.gif" width = "180" height = "300" alt="Login" />
 
 
